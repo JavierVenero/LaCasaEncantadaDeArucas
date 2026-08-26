@@ -85,11 +85,15 @@ main {
 
 .hero {
   position: relative;
+
   width: 100vw;
   height: 100dvh;
+
   margin: 0;
   padding: 0;
+
   overflow: hidden;
+
   background: var(--green-deep);
 }
 
@@ -101,6 +105,7 @@ main {
 .hero-image {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
 }
@@ -108,15 +113,19 @@ main {
 .hero-image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
+
   animation: casaRespira 24s ease-in-out infinite alternate;
 }
 
 .hero-image::after {
   content: "";
+
   position: absolute;
   inset: 0;
+
   pointer-events: none;
 
   background:
@@ -153,12 +162,15 @@ main {
 
 .site-header {
   position: fixed;
+
   top: 0;
   left: 0;
   right: 0;
+
   z-index: 50;
 
   height: 11.7vw;
+
   padding: 1.43vw 2.73vw;
 
   display: flex;
@@ -166,6 +178,7 @@ main {
   justify-content: space-between;
 
   background: transparent;
+
   pointer-events: none;
 }
 
@@ -176,18 +189,22 @@ main {
 
 .brand {
   position: relative;
+
   display: block;
 
   width: 16.93vw;
   height: 9.77vw;
 
   overflow: visible;
+
   isolation: isolate;
+
   pointer-events: auto;
 }
 
 .brand::before {
   content: "";
+
   position: absolute;
 
   left: -2.08vw;
@@ -206,14 +223,17 @@ main {
     );
 
   filter: blur(0.65vw);
+
   border-radius: 45%;
 
   z-index: -1;
+
   pointer-events: none;
 }
 
 .brand-logo {
   position: relative;
+
   z-index: 1;
 
   width: 16.93vw !important;
@@ -245,6 +265,7 @@ main {
   align-items: center;
 
   gap: 0.39vw;
+
   padding: 0.39vw 0.52vw;
 
   border-radius: 999px;
@@ -264,15 +285,18 @@ main {
   -webkit-appearance: none;
 
   margin: 0;
+
   padding: 0.26vw 0.46vw;
 
   border: 0;
   border-radius: 0.39vw;
 
   background: rgba(255, 255, 255, 0.88);
+
   color: #193428;
 
   cursor: pointer;
+
   opacity: 0.78;
 
   transition:
@@ -283,12 +307,15 @@ main {
 
 .language-switcher button:hover {
   opacity: 1;
+
   transform: translateY(-1px);
 }
 
 .language-switcher button.active {
   opacity: 1;
+
   font-weight: 700;
+
   background: #ffffff;
 }
 
@@ -299,6 +326,7 @@ main {
 
 .hero-content {
   position: absolute;
+
   z-index: 10;
 
   left: 6.7vw;
@@ -322,6 +350,7 @@ main {
   font-weight: 700;
 
   line-height: 1.15;
+
   letter-spacing: 0.19em;
 
   color: #e8c58d;
@@ -346,6 +375,7 @@ main {
   font-weight: 400;
 
   line-height: 0.88;
+
   letter-spacing: -0.047em;
 
   color: var(--cream);
@@ -376,6 +406,7 @@ main {
   font-size: 1.08vw;
 
   line-height: 1.35;
+
   letter-spacing: 0.06em;
 
   color: rgba(255, 248, 236, 0.97);
@@ -486,6 +517,7 @@ main {
   font-weight: 700;
 
   line-height: 1;
+
   letter-spacing: 0.12em;
 
   white-space: nowrap;
@@ -1809,11 +1841,13 @@ main {
 /* ==========================================================
    MÓVIL TÁCTIL REAL
 
-   1. Fachada completa, sin deformarla.
-   2. Logo trasladado junto al título.
-   3. Tres experiencias agrupadas.
-   4. Anfitriones separados y destacados.
-   5. Modales completos sin necesidad de scroll.
+   - Fachada completa y fundida progresivamente con el verde.
+   - Logo integrado en el bloque principal.
+   - Tres experiencias agrupadas.
+   - Anfitriones separados y destacados.
+   - Modales compactos, sin enorme espacio muerto.
+   - Imágenes respetadas.
+   - Lectura grande y clara.
    ========================================================== */
 
 @media (hover: none) and (pointer: coarse) and (max-width: 650px) {
@@ -1828,12 +1862,9 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     LOGOTIPO SUPERIOR ORIGINAL
-
-     Se oculta exclusivamente en móvil.
-     El mismo logo reaparece dentro del contenido principal.
-     -------------------------------------------------------- */
+  /* ========================================================
+     CABECERA
+     ======================================================== */
 
   .brand {
     display: none;
@@ -1847,20 +1878,20 @@ main {
     font-size: 12px;
 
     background:
-      rgba(14, 34, 23, 0.58);
+      rgba(14, 34, 23, 0.62);
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      FACHADA
 
-     En móvil usamos la propia imagen como fondo a anchura
-     completa. Así se conserva toda la fachada horizontal
-     en lugar de recortarla hasta dejar una sola ventana.
-     -------------------------------------------------------- */
+     Se mantiene la fachada completa.
+     La zona inferior se funde progresivamente con el verde
+     para eliminar el corte brusco.
+     ======================================================== */
 
   .hero-image {
     position: absolute;
@@ -1871,7 +1902,7 @@ main {
     bottom: auto;
 
     width: 100%;
-    height: 47dvh;
+    height: 55dvh;
 
     overflow: hidden;
 
@@ -1891,25 +1922,35 @@ main {
   }
 
   .hero-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
     background:
       linear-gradient(
-        0deg,
-        var(--green-deep) 0%,
-        rgba(16, 37, 26, 0.94) 10%,
-        rgba(16, 37, 26, 0.62) 25%,
-        rgba(7, 21, 13, 0.12) 58%,
-        rgba(7, 21, 13, 0.02) 100%
+        180deg,
+        rgba(16, 37, 26, 0.00) 0%,
+        rgba(16, 37, 26, 0.00) 46%,
+        rgba(16, 37, 26, 0.04) 53%,
+        rgba(16, 37, 26, 0.10) 59%,
+        rgba(16, 37, 26, 0.20) 65%,
+        rgba(16, 37, 26, 0.34) 71%,
+        rgba(16, 37, 26, 0.50) 77%,
+        rgba(16, 37, 26, 0.66) 83%,
+        rgba(16, 37, 26, 0.80) 88%,
+        rgba(16, 37, 26, 0.90) 93%,
+        rgba(16, 37, 26, 0.97) 97%,
+        var(--green-deep) 100%
       );
+
+    pointer-events: none;
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      CONTENIDO PRINCIPAL
-
-     El logo real del hero pasa a ser visible y queda
-     alineado a la izquierda inmediatamente sobre
-     YOGA INTEGRAL · ARUCAS · GRAN CANARIA.
-     -------------------------------------------------------- */
+     ======================================================== */
 
   .hero-content {
     left: 18px;
@@ -1923,6 +1964,9 @@ main {
 
     width: auto;
   }
+
+
+  /* LOGO PRINCIPAL */
 
   .hero-logo {
     display: block !important;
@@ -1952,18 +1996,20 @@ main {
       0 0 8px;
 
     font-size:
-      clamp(9px, 2.35vw, 11px);
+      clamp(10px, 2.45vw, 12px);
+
+    font-weight: 700;
 
     line-height: 1.2;
 
-    letter-spacing: 0.14em;
+    letter-spacing: 0.13em;
 
     white-space: normal;
   }
 
   .hero h1 {
     font-size:
-      clamp(47px, 13.4vw, 70px);
+      clamp(48px, 13.5vw, 70px);
 
     line-height: 0.88;
   }
@@ -1976,12 +2022,17 @@ main {
     margin-top: 11px;
 
     font-size:
-      clamp(12px, 3.35vw, 14px);
+      clamp(13px, 3.45vw, 15px);
 
     line-height: 1.3;
 
     white-space: normal;
   }
+
+
+  /* ========================================================
+     ACCESOS SOCIALES
+     ======================================================== */
 
   .hero-actions {
     width: 100%;
@@ -1995,12 +2046,12 @@ main {
   }
 
   .hero-action {
-    height: 59px;
+    height: 60px;
 
     padding: 8px 10px;
 
     grid-template-columns:
-      21px minmax(0, 1fr);
+      22px minmax(0, 1fr);
 
     column-gap: 8px;
 
@@ -2008,8 +2059,8 @@ main {
   }
 
   .hero-action svg {
-    width: 21px !important;
-    height: 21px !important;
+    width: 22px !important;
+    height: 22px !important;
   }
 
   .hero-action span {
@@ -2017,7 +2068,7 @@ main {
   }
 
   .hero-action strong {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .live-message {
@@ -2025,16 +2076,16 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     EXPERIENCIAS
-
-     Las tres actividades permanecen juntas.
-     -------------------------------------------------------- */
+  /* ========================================================
+     TRES EXPERIENCIAS
+     ======================================================== */
 
   .experiences-dock {
     position: fixed;
 
-    top: 100px;
+    z-index: 85;
+
+    top: 103px;
     left: 18px;
     right: auto;
 
@@ -2050,34 +2101,34 @@ main {
   }
 
   .experience-trigger {
-    width: 58px;
-    height: 58px;
+    width: 59px;
+    height: 59px;
 
     aspect-ratio: auto;
 
     flex:
-      0 0 58px;
+      0 0 59px;
 
     overflow: visible;
 
     border:
       1px solid
-      rgba(255, 248, 236, 0.48);
+      rgba(255, 248, 236, 0.50);
 
     border-radius: 50%;
 
     background: transparent;
 
     box-shadow:
-      0 9px 21px
-      rgba(0, 0, 0, 0.31);
+      0 9px 22px
+      rgba(0, 0, 0, 0.32);
   }
 
   .experience-trigger::before {
     border-radius: 50%;
 
     background:
-      rgba(7, 20, 13, 0.04);
+      rgba(7, 20, 13, 0.03);
   }
 
   .experience-trigger::after {
@@ -2096,6 +2147,9 @@ main {
     transform: none;
   }
 
+
+  /* LEYENDAS EXPERIENCIAS */
+
   .experience-trigger-copy {
     display: block;
 
@@ -2109,7 +2163,7 @@ main {
 
     bottom: auto;
 
-    width: 78px;
+    width: 82px;
 
     transform:
       translateX(-50%);
@@ -2135,7 +2189,7 @@ main {
       Helvetica,
       sans-serif;
 
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 600;
 
     line-height: 1.08;
@@ -2155,29 +2209,26 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     ANFITRIONES
-
-     Ya no funciona visualmente como cuarta actividad.
-     Tiene más tamaño, más separación y personalidad propia.
-     -------------------------------------------------------- */
+  /* ========================================================
+     ANFITRIONES — ACCESO DESTACADO
+     ======================================================== */
 
   .hosts-trigger {
-    top: 94px;
+    top: 95px;
     right: 18px;
 
-    width: 78px;
-    min-width: 78px;
-    max-width: 78px;
+    width: 82px;
+    min-width: 82px;
+    max-width: 82px;
 
-    height: 78px;
-    min-height: 78px;
+    height: 82px;
+    min-height: 82px;
 
     overflow: visible;
 
     border:
       2px solid
-      rgba(225, 188, 128, 0.85);
+      rgba(225, 188, 128, 0.90);
 
     border-radius: 50%;
 
@@ -2206,12 +2257,16 @@ main {
     height: 100%;
 
     object-fit: cover;
-    object-position: center;
+
+    object-position: 50% 32%;
 
     border-radius: 50%;
 
     transform: none;
   }
+
+
+  /* LEYENDA ANFITRIONES */
 
   .hosts-trigger-copy {
     display: block;
@@ -2226,7 +2281,7 @@ main {
 
     bottom: auto;
 
-    width: 108px;
+    width: 116px;
 
     transform:
       translateX(-50%);
@@ -2249,7 +2304,7 @@ main {
       Helvetica,
       sans-serif;
 
-    font-size: 6px;
+    font-size: 7px;
     font-weight: 700;
 
     line-height: 1;
@@ -2274,7 +2329,7 @@ main {
       "Times New Roman",
       serif;
 
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
 
     line-height: 1.05;
@@ -2293,22 +2348,23 @@ main {
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      MODAL EXPERIENCIAS
 
-     CERO SCROLL.
-     Se compactan únicamente las dimensiones móviles.
-     -------------------------------------------------------- */
+     La tarjeta se adapta a su contenido.
+     No ocupa artificialmente toda la pantalla.
+     Cero gran bloque verde vacío.
+     ======================================================== */
 
   .experience-modal {
     padding:
       max(
-        10px,
+        12px,
         env(safe-area-inset-top)
       )
-      10px
+      12px
       max(
-        10px,
+        12px,
         env(safe-area-inset-bottom)
       );
   }
@@ -2316,27 +2372,28 @@ main {
   .experience-card {
     width: 100%;
 
-    height:
+    height: auto;
+
+    max-height:
       calc(
         100dvh -
         max(
-          10px,
+          12px,
           env(safe-area-inset-top)
         ) -
         max(
-          10px,
+          12px,
           env(safe-area-inset-bottom)
         )
       );
 
-    max-height: none;
-
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
 
-    border-radius: 18px;
+    border-radius: 20px;
   }
 
   .experience-photo {
@@ -2344,9 +2401,9 @@ main {
 
     height:
       clamp(
-        210px,
-        34dvh,
-        310px
+        230px,
+        31dvh,
+        300px
       );
 
     min-height: 0;
@@ -2364,43 +2421,45 @@ main {
   }
 
   .experience-copy {
+    flex:
+      0 0 auto;
+
     min-height: 0;
 
-    flex:
-      1 1 auto;
-
     padding:
-      18px 20px 17px;
+      20px 22px 22px;
 
     justify-content:
       flex-start;
 
-    overflow: hidden;
+    overflow: visible;
   }
 
   .experience-eyebrow {
     margin:
-      0 0 9px;
+      0 0 10px;
 
-    font-size: 10px;
+    font-size: 11px;
+
+    font-weight: 700;
 
     line-height: 1.1;
 
-    letter-spacing: 0.19em;
+    letter-spacing: 0.18em;
   }
 
   .experience-copy h2 {
     margin:
-      0 0 14px;
+      0 0 15px;
 
     font-size:
       clamp(
-        30px,
-        8.5vw,
-        40px
+        36px,
+        9.4vw,
+        46px
       );
 
-    line-height: 0.94;
+    line-height: 0.95;
 
     letter-spacing: -0.03em;
   }
@@ -2410,52 +2469,59 @@ main {
 
     font-size:
       clamp(
-        13px,
-        3.45vw,
-        15px
+        15px,
+        4vw,
+        17px
       );
 
-    line-height: 1.42;
+    line-height: 1.45;
+
+    color:
+      rgba(255, 248, 236, 0.90);
   }
 
   .experience-signature {
     margin:
-      14px 0 0;
+      15px 0 0;
 
     font-size:
       clamp(
-        16px,
-        4.3vw,
-        19px
+        19px,
+        5vw,
+        22px
       );
 
-    line-height: 1.12;
+    line-height: 1.15;
   }
 
   .experience-close {
-    top: 12px;
-    right: 12px;
+    top: 13px;
+    right: 13px;
 
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
+
+    font-size: 29px;
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      MODAL ANFITRIONES
 
-     También queda contenido dentro de la pantalla.
-     -------------------------------------------------------- */
+     La proporción de la imagen respeta la fotografía real.
+     No se recortan las cabezas.
+     La tarjeta termina poco después del texto.
+     ======================================================== */
 
   .hosts-modal {
     padding:
       max(
-        10px,
+        12px,
         env(safe-area-inset-top)
       )
-      10px
+      12px
       max(
-        10px,
+        12px,
         env(safe-area-inset-bottom)
       );
   }
@@ -2463,43 +2529,51 @@ main {
   .hosts-card {
     width: 100%;
 
-    height:
+    height: auto;
+
+    max-height:
       calc(
         100dvh -
         max(
-          10px,
+          12px,
           env(safe-area-inset-top)
         ) -
         max(
-          10px,
+          12px,
           env(safe-area-inset-bottom)
         )
       );
 
-    max-height: none;
-
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
 
-    border-radius: 18px;
+    border-radius: 20px;
   }
+
+
+  /* Fotografía real 1408 x 1086.
+     Conservamos aproximadamente su proporción. */
 
   .hosts-photo {
     width: 100%;
 
-    height:
-      clamp(
-        220px,
-        35dvh,
-        320px
-      );
+    height: auto;
+
+    aspect-ratio:
+      1408 / 1086;
 
     min-height: 0;
 
     flex:
       0 0 auto;
+
+    overflow: hidden;
+
+    background:
+      #0b1b12;
   }
 
   .hosts-photo img {
@@ -2507,42 +2581,46 @@ main {
     height: 100%;
 
     object-fit: cover;
-    object-position: center;
+
+    object-position:
+      center center;
   }
 
   .hosts-copy {
+    flex:
+      0 0 auto;
+
     min-height: 0;
 
-    flex:
-      1 1 auto;
-
     padding:
-      18px 20px 17px;
+      20px 22px 22px;
 
     justify-content:
       flex-start;
 
-    overflow: hidden;
+    overflow: visible;
   }
 
   .hosts-eyebrow {
     margin:
-      0 0 9px;
+      0 0 10px;
 
-    font-size: 10px;
+    font-size: 11px;
 
     line-height: 1.1;
+
+    letter-spacing: 0.18em;
   }
 
   .hosts-copy h2 {
     margin:
-      0 0 14px;
+      0 0 15px;
 
     font-size:
       clamp(
-        31px,
-        8.8vw,
-        42px
+        37px,
+        9.6vw,
+        47px
       );
 
     line-height: 0.94;
@@ -2553,58 +2631,65 @@ main {
 
     font-size:
       clamp(
-        13px,
-        3.45vw,
-        15px
+        15px,
+        4vw,
+        17px
       );
 
-    line-height: 1.42;
+    line-height: 1.45;
+
+    color:
+      rgba(255, 248, 236, 0.90);
   }
 
   .hosts-signature {
     margin:
-      14px 0 0;
+      15px 0 0;
 
     font-size:
       clamp(
-        16px,
-        4.3vw,
-        19px
+        19px,
+        5vw,
+        22px
       );
 
-    line-height: 1.12;
+    line-height: 1.15;
   }
 
   .hosts-close {
-    top: 12px;
-    right: 12px;
+    top: 13px;
+    right: 13px;
 
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
+
+    font-size: 29px;
   }
 }
 
 
 /* ==========================================================
    MÓVILES DE POCA ALTURA
-   Blindaje para garantizar cero scroll.
+
+   Se compacta de forma moderada.
+   Se preserva la lectura.
    ========================================================== */
 
 @media (hover: none) and (pointer: coarse) and (max-width: 650px) and (max-height: 760px) {
 
   .experience-photo {
-    height: 29dvh;
+    height: 27dvh;
   }
 
   .experience-copy {
     padding:
-      14px 18px;
+      15px 18px 17px;
   }
 
   .experience-eyebrow {
     margin-bottom: 7px;
 
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .experience-copy h2 {
@@ -2612,37 +2697,39 @@ main {
 
     font-size:
       clamp(
-        27px,
-        7.8vw,
-        34px
+        31px,
+        8.5vw,
+        38px
       );
   }
 
   .experience-text {
-    font-size: 12.5px;
+    font-size: 14px;
 
-    line-height: 1.34;
+    line-height: 1.36;
   }
 
   .experience-signature {
     margin-top: 10px;
 
-    font-size: 15px;
+    font-size: 17px;
   }
 
+
   .hosts-photo {
-    height: 30dvh;
+    aspect-ratio:
+      1408 / 1086;
   }
 
   .hosts-copy {
     padding:
-      14px 18px;
+      15px 18px 17px;
   }
 
   .hosts-eyebrow {
     margin-bottom: 7px;
 
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .hosts-copy h2 {
@@ -2650,22 +2737,22 @@ main {
 
     font-size:
       clamp(
-        28px,
-        8vw,
-        35px
+        31px,
+        8.5vw,
+        39px
       );
   }
 
   .hosts-copy > p:not(.hosts-eyebrow):not(.hosts-signature) {
-    font-size: 12.5px;
+    font-size: 14px;
 
-    line-height: 1.34;
+    line-height: 1.36;
   }
 
   .hosts-signature {
     margin-top: 10px;
 
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
