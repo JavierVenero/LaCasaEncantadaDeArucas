@@ -58,7 +58,7 @@
 
   <link
     rel="stylesheet"
-    href="styles.css?v=11"
+    href="styles.css?v=12"
   >
 </head>
 
@@ -96,14 +96,6 @@
 
       <a href="#yoga" data-es="Yoga" data-en="Yoga">
         Yoga
-      </a>
-
-      <a href="#meditacion" data-es="Meditación" data-en="Meditation">
-        Meditación
-      </a>
-
-      <a href="#encuentros" data-es="Encuentros" data-en="Gatherings">
-        Encuentros
       </a>
 
       <a href="#anfitriones" data-es="Anfitriones" data-en="Hosts">
@@ -324,7 +316,10 @@
          CONTENIDO SEMÁNTICO / SEO
          ==================================================== -->
 
-    <section id="esencia" class="section essence">
+    <section
+      id="esencia"
+      class="section essence"
+    >
 
       <div class="section-intro">
 
@@ -375,7 +370,10 @@
     </section>
 
 
-    <section id="yoga" class="section split-section">
+    <section
+      id="yoga"
+      class="section split-section"
+    >
 
       <div class="section-copy">
 
@@ -402,35 +400,10 @@
     </section>
 
 
-    <section id="meditacion" class="section meditation">
-
-      <div class="meditation-copy">
-
-        <p
-          data-es="Respiración, silencio, escucha y presencia forman parte de una manera de entender la práctica y el bienestar desde una perspectiva integral."
-          data-en="Breathing, silence, listening and presence are part of an integral approach to practice and wellbeing."
-        >
-          Respiración, silencio, escucha y presencia.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <section id="encuentros" class="section gatherings">
-
-      <p
-        data-es="Además de su actividad habitual de Yoga Integral, La Casa Encantada abre sus puertas a propuestas puntuales de música, arte, talleres, viajes sonoros, crecimiento personal, cultura y encuentro."
-        data-en="Alongside its regular Integral Yoga practice, La Casa Encantada opens its doors to occasional music, art, workshops, sound journeys, personal growth, culture and community experiences."
-      >
-        Además de su actividad habitual de Yoga Integral, La Casa Encantada abre sus puertas a otras propuestas.
-      </p>
-
-    </section>
-
-
-    <section id="anfitriones" class="section mario">
+    <section
+      id="anfitriones"
+      class="section mario"
+    >
 
       <p>
         Mario Issa · Yanira Naranjo
@@ -439,16 +412,10 @@
     </section>
 
 
-    <section class="quote-section">
-
-      <blockquote>
-        Facilitándote espacios de consciencia, disfrute, sanación y bienestar.
-      </blockquote>
-
-    </section>
-
-
-    <section id="contacto" class="section contact">
+    <section
+      id="contacto"
+      class="section contact"
+    >
 
       <p>
         La Casa Encantada de Arucas · C/ La Heredad, 9 · Arucas · Gran Canaria
@@ -461,16 +428,19 @@
 
 
   <!-- ======================================================
-       EXPERIENCIAS — TRES PUERTAS DE LA CASA
+       DOS ACCESOS PRINCIPALES
+       YOGA INTEGRAL + HORARIOS
        ====================================================== -->
 
   <div
     class="experiences-dock"
-    aria-label="Descubre La Casa Encantada"
+    aria-label="Yoga Integral y horarios de La Casa Encantada"
   >
 
 
-    <!-- YOGA -->
+    <!-- ====================================================
+         YOGA INTEGRAL
+         ==================================================== -->
 
     <button
       class="experience-trigger"
@@ -482,7 +452,7 @@
 
       <img
         src="assets/images/yoga.png"
-        alt=""
+        alt="Clase de Yoga Integral en La Casa Encantada de Arucas"
       >
 
       <span class="experience-trigger-copy">
@@ -507,72 +477,37 @@
 
 
 
-    <!-- CONSCIENCIA -->
+    <!-- ====================================================
+         HORARIOS
+         ==================================================== -->
 
     <button
-      class="experience-trigger"
+      class="experience-trigger experience-trigger-schedule"
       type="button"
-      data-experience="meditacion"
+      data-experience="horarios"
       aria-haspopup="dialog"
       aria-controls="experience-modal"
     >
 
       <img
-        src="assets/images/sala.png"
-        alt=""
+        src="assets/images/horarios.png"
+        alt="Horarios de las clases de Yoga Integral de La Casa Encantada de Arucas"
       >
 
       <span class="experience-trigger-copy">
 
         <small
-          data-es="PRESENCIA"
-          data-en="PRESENCE"
+          data-es="CLASES"
+          data-en="CLASSES"
         >
-          PRESENCIA
+          CLASES
         </small>
 
         <strong
-          data-es="Consciencia"
-          data-en="Awareness"
+          data-es="Horarios"
+          data-en="Schedule"
         >
-          Consciencia
-        </strong>
-
-      </span>
-
-    </button>
-
-
-
-    <!-- CASA VIVA -->
-
-    <button
-      class="experience-trigger"
-      type="button"
-      data-experience="encuentros"
-      aria-haspopup="dialog"
-      aria-controls="experience-modal"
-    >
-
-      <img
-        src="assets/images/encuentro.jpg"
-        alt=""
-      >
-
-      <span class="experience-trigger-copy">
-
-        <small
-          data-es="ENCUENTRO"
-          data-en="CONNECTION"
-        >
-          ENCUENTRO
-        </small>
-
-        <strong
-          data-es="Una casa viva"
-          data-en="A living house"
-        >
-          Una casa viva
+          Horarios
         </strong>
 
       </span>
@@ -584,7 +519,7 @@
 
 
   <!-- ======================================================
-       MODAL EXPERIENCIAS
+       MODAL YOGA / HORARIOS
        ====================================================== -->
 
   <div
@@ -803,6 +738,8 @@
 
       let currentLanguage = "es";
       let activeExperience = null;
+      let lastExperienceTrigger = null;
+
 
 
       /* ==================================================
@@ -849,7 +786,9 @@
 
           buttonES.setAttribute(
             "aria-pressed",
-            lang === "es" ? "true" : "false"
+            lang === "es"
+              ? "true"
+              : "false"
           );
 
         }
@@ -864,13 +803,16 @@
 
           buttonEN.setAttribute(
             "aria-pressed",
-            lang === "en" ? "true" : "false"
+            lang === "en"
+              ? "true"
+              : "false"
           );
 
         }
 
 
-        document.documentElement.lang = lang;
+        document.documentElement.lang =
+          lang;
 
 
         try {
@@ -913,13 +855,22 @@
       try {
 
         const saved =
-          localStorage.getItem("casaEncantadaLanguage");
+          localStorage.getItem(
+            "casaEncantadaLanguage"
+          );
 
-        if (saved === "es" || saved === "en") {
-          currentLanguage = saved;
+        if (
+          saved === "es" ||
+          saved === "en"
+        ) {
+
+          currentLanguage =
+            saved;
+
         }
 
       } catch (error) {}
+
 
 
       /* ==================================================
@@ -928,10 +879,25 @@
 
       const experienceData = {
 
+
+        /* --------------------------------------------------
+           YOGA INTEGRAL
+           -------------------------------------------------- */
+
         yoga: {
 
           image:
             "assets/images/yoga.png",
+
+          imageAlt: {
+
+            es:
+              "Clase de Yoga Integral en La Casa Encantada de Arucas",
+
+            en:
+              "Integral Yoga class at La Casa Encantada de Arucas"
+
+          },
 
           es: {
 
@@ -968,80 +934,55 @@
         },
 
 
-        meditacion: {
+
+        /* --------------------------------------------------
+           HORARIOS
+           -------------------------------------------------- */
+
+        horarios: {
 
           image:
-            "assets/images/sala.png",
+            "assets/images/horarios.png",
+
+          imageAlt: {
+
+            es:
+              "Horarios de las clases de Yoga Integral de La Casa Encantada de Arucas",
+
+            en:
+              "Integral Yoga class schedule at La Casa Encantada de Arucas"
+
+          },
 
           es: {
 
             eyebrow:
-              "CONSCIENCIA Y PRESENCIA",
+              "HORARIOS DE LAS CLASES",
 
             title:
-              "Un espacio para detenerse",
+              "Yoga Integral · Todos los niveles",
 
             text:
-              "Respiración, silencio, escucha y presencia forman parte de una forma integral de entender el bienestar. Un lugar para bajar el ruido, regresar al cuerpo y cultivar una relación más consciente con el momento presente.",
+              "Martes · 10:30 h · 18:30 h · 20:00 h\nMiércoles · 16:30 h\nJueves · 10:30 h · 18:30 h · 20:00 h",
 
             signature:
-              "Respirar. Escuchar. Estar."
+              "C/ La Heredad, 9 · Arucas"
 
           },
 
           en: {
 
             eyebrow:
-              "AWARENESS AND PRESENCE",
+              "CLASS SCHEDULE",
 
             title:
-              "A space to pause",
+              "Integral Yoga · All levels",
 
             text:
-              "Breathing, silence, listening and presence are part of an integral approach to wellbeing. A place to quieten the noise, return to the body and cultivate a more conscious relationship with the present moment.",
+              "Tuesday · 10:30 · 18:30 · 20:00\nWednesday · 16:30\nThursday · 10:30 · 18:30 · 20:00",
 
             signature:
-              "Breathe. Listen. Be."
-
-          }
-
-        },
-
-
-        encuentros: {
-
-          image:
-            "assets/images/encuentro.jpg",
-
-          es: {
-
-            eyebrow:
-              "UNA CASA VIVA",
-
-            title:
-              "Mucho más puede suceder en una casa",
-
-            text:
-              "Además del Yoga Integral, La Casa Encantada abre sus puertas de forma puntual a música, arte, talleres, experiencias sonoras, crecimiento personal, cultura y encuentro. No una agenda rígida, sino una casa disponible para aquello que merece ser compartido.",
-
-            signature:
-              "Cultura, comunidad y encuentro."
-
-          },
-
-          en: {
-
-            eyebrow:
-              "A LIVING HOUSE",
-
-            title:
-              "Much more can happen in a house",
-
-            text:
-              "Alongside Integral Yoga, La Casa Encantada occasionally opens its doors to music, art, workshops, sound experiences, personal growth, culture and community. Not a rigid programme, but a house open to experiences worth sharing.",
-
-            signature:
-              "Culture, community and connection."
+              "C/ La Heredad, 9 · Arucas"
 
           }
 
@@ -1050,36 +991,53 @@
       };
 
 
+
       const experienceModal =
-        document.getElementById("experience-modal");
+        document.getElementById(
+          "experience-modal"
+        );
 
       const experienceImage =
-        document.getElementById("experience-image");
+        document.getElementById(
+          "experience-image"
+        );
 
       const experienceEyebrow =
-        document.getElementById("experience-eyebrow");
+        document.getElementById(
+          "experience-eyebrow"
+        );
 
       const experienceTitle =
-        document.getElementById("experience-title");
+        document.getElementById(
+          "experience-title"
+        );
 
       const experienceText =
-        document.getElementById("experience-text");
+        document.getElementById(
+          "experience-text"
+        );
 
       const experienceSignature =
-        document.getElementById("experience-signature");
+        document.getElementById(
+          "experience-signature"
+        );
 
       const experienceCloseButton =
         experienceModal
-          ? experienceModal.querySelector(".experience-close")
+          ? experienceModal.querySelector(
+              ".experience-close"
+            )
           : null;
 
       const experienceTriggers =
-        document.querySelectorAll("[data-experience]");
+        document.querySelectorAll(
+          "[data-experience]"
+        );
 
       const experienceCloseElements =
-        document.querySelectorAll("[data-close-experience]");
-
-      let lastExperienceTrigger = null;
+        document.querySelectorAll(
+          "[data-close-experience]"
+        );
 
 
 
@@ -1092,48 +1050,99 @@
           return;
         }
 
+
         const content =
-          item[currentLanguage] || item.es;
+          item[currentLanguage] ||
+          item.es;
 
 
         if (experienceImage) {
-          experienceImage.src = item.image;
+
+          experienceImage.src =
+            item.image;
+
+          experienceImage.alt =
+            item.imageAlt[currentLanguage] ||
+            item.imageAlt.es ||
+            "";
+
         }
+
 
         if (experienceEyebrow) {
-          experienceEyebrow.textContent = content.eyebrow;
+
+          experienceEyebrow.textContent =
+            content.eyebrow;
+
         }
+
 
         if (experienceTitle) {
-          experienceTitle.textContent = content.title;
+
+          experienceTitle.textContent =
+            content.title;
+
         }
+
 
         if (experienceText) {
-          experienceText.textContent = content.text;
+
+          experienceText.textContent =
+            content.text;
+
         }
 
+
         if (experienceSignature) {
-          experienceSignature.textContent = content.signature;
+
+          experienceSignature.textContent =
+            content.signature;
+
+        }
+
+
+        if (experienceModal) {
+
+          experienceModal.dataset.experience =
+            type;
+
         }
 
       }
 
 
 
-      function openExperience(type, trigger) {
+      function openExperience(
+        type,
+        trigger
+      ) {
 
-        if (!experienceModal || !experienceData[type]) {
+        if (
+          !experienceModal ||
+          !experienceData[type]
+        ) {
+
           return;
+
         }
+
 
         closeHosts(false);
 
-        activeExperience = type;
-        lastExperienceTrigger = trigger || null;
+
+        activeExperience =
+          type;
+
+        lastExperienceTrigger =
+          trigger || null;
+
 
         renderExperience(type);
 
-        experienceModal.classList.add("is-open");
+
+        experienceModal.classList.add(
+          "is-open"
+        );
 
         experienceModal.setAttribute(
           "aria-hidden",
@@ -1148,7 +1157,8 @@
         if (experienceCloseButton) {
 
           window.setTimeout(
-            () => experienceCloseButton.focus(),
+            () =>
+              experienceCloseButton.focus(),
             50
           );
 
@@ -1158,24 +1168,35 @@
 
 
 
-      function closeExperience(returnFocus = true) {
+      function closeExperience(
+        returnFocus = true
+      ) {
 
         if (!experienceModal) {
           return;
         }
 
-        experienceModal.classList.remove("is-open");
+
+        experienceModal.classList.remove(
+          "is-open"
+        );
 
         experienceModal.setAttribute(
           "aria-hidden",
           "true"
         );
 
+        experienceModal.removeAttribute(
+          "data-experience"
+        );
+
         document.body.classList.remove(
           "experience-open"
         );
 
-        activeExperience = null;
+
+        activeExperience =
+          null;
 
 
         if (
@@ -1191,32 +1212,37 @@
 
 
 
-      experienceTriggers.forEach((trigger) => {
+      experienceTriggers.forEach(
+        (trigger) => {
 
-        trigger.addEventListener(
-          "click",
-          () => {
+          trigger.addEventListener(
+            "click",
+            () => {
 
-            openExperience(
-              trigger.dataset.experience,
-              trigger
-            );
+              openExperience(
+                trigger.dataset.experience,
+                trigger
+              );
 
-          }
-        );
+            }
+          );
 
-      });
+        }
+      );
 
 
 
-      experienceCloseElements.forEach((element) => {
+      experienceCloseElements.forEach(
+        (element) => {
 
-        element.addEventListener(
-          "click",
-          () => closeExperience()
-        );
+          element.addEventListener(
+            "click",
+            () =>
+              closeExperience()
+          );
 
-      });
+        }
+      );
 
 
 
@@ -1225,30 +1251,47 @@
          ================================================== */
 
       const hostsTrigger =
-        document.getElementById("hosts-trigger");
+        document.getElementById(
+          "hosts-trigger"
+        );
 
       const hostsModal =
-        document.getElementById("hosts-modal");
+        document.getElementById(
+          "hosts-modal"
+        );
 
       const hostsCloseButton =
         hostsModal
-          ? hostsModal.querySelector(".hosts-close")
+          ? hostsModal.querySelector(
+              ".hosts-close"
+            )
           : null;
 
       const hostsCloseElements =
-        document.querySelectorAll("[data-close-hosts]");
+        document.querySelectorAll(
+          "[data-close-hosts]"
+        );
 
 
 
       function openHosts() {
 
-        if (!hostsModal || !hostsTrigger) {
+        if (
+          !hostsModal ||
+          !hostsTrigger
+        ) {
+
           return;
+
         }
+
 
         closeExperience(false);
 
-        hostsModal.classList.add("is-open");
+
+        hostsModal.classList.add(
+          "is-open"
+        );
 
         hostsModal.setAttribute(
           "aria-hidden",
@@ -1268,7 +1311,8 @@
         if (hostsCloseButton) {
 
           window.setTimeout(
-            () => hostsCloseButton.focus(),
+            () =>
+              hostsCloseButton.focus(),
             50
           );
 
@@ -1278,13 +1322,23 @@
 
 
 
-      function closeHosts(returnFocus = true) {
+      function closeHosts(
+        returnFocus = true
+      ) {
 
-        if (!hostsModal || !hostsTrigger) {
+        if (
+          !hostsModal ||
+          !hostsTrigger
+        ) {
+
           return;
+
         }
 
-        hostsModal.classList.remove("is-open");
+
+        hostsModal.classList.remove(
+          "is-open"
+        );
 
         hostsModal.setAttribute(
           "aria-hidden",
@@ -1302,7 +1356,9 @@
 
 
         if (returnFocus) {
+
           hostsTrigger.focus();
+
         }
 
       }
@@ -1320,14 +1376,17 @@
 
 
 
-      hostsCloseElements.forEach((element) => {
+      hostsCloseElements.forEach(
+        (element) => {
 
-        element.addEventListener(
-          "click",
-          () => closeHosts()
-        );
+          element.addEventListener(
+            "click",
+            () =>
+              closeHosts()
+          );
 
-      });
+        }
+      );
 
 
 
@@ -1339,17 +1398,24 @@
         "keydown",
         (event) => {
 
-          if (event.key !== "Escape") {
+          if (
+            event.key !== "Escape"
+          ) {
+
             return;
+
           }
 
 
           if (
             experienceModal &&
-            experienceModal.classList.contains("is-open")
+            experienceModal.classList.contains(
+              "is-open"
+            )
           ) {
 
             closeExperience();
+
             return;
 
           }
@@ -1357,7 +1423,9 @@
 
           if (
             hostsModal &&
-            hostsModal.classList.contains("is-open")
+            hostsModal.classList.contains(
+              "is-open"
+            )
           ) {
 
             closeHosts();
@@ -1368,11 +1436,14 @@
       );
 
 
+
       /* ==================================================
-         ARRANQUE FINAL
+         ARRANQUE
          ================================================== */
 
-      setLanguage(currentLanguage);
+      setLanguage(
+        currentLanguage
+      );
 
 
     })();
