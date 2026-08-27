@@ -3587,80 +3587,129 @@ main {
     transition: none;
   }
 
-  /* ==========================================================
-   TABLET HORIZONTAL — DISTRIBUCIÓN ESPECÍFICA
-   NO AFECTA A TABLET VERTICAL, MÓVIL NI ESCRITORIO
+/* ==========================================================
+   TABLET HORIZONTAL — CORRECCIÓN DEFINITIVA
+   Yoga + Horarios a la derecha.
+   Anfitriones independiente.
+   Zona izquierda completamente libre para título.
    ========================================================== */
 
-@media (hover: none) and (pointer: coarse)
-       and (min-width: 651px) and (max-width: 1100px)
-       and (orientation: landscape) {
+@media (orientation: landscape)
+       and (min-width: 651px)
+       and (max-width: 1400px)
+       and (max-height: 950px) {
 
-  /* --------------------------------------------------------
-     YOGA + HORARIOS
-     Los dos pasan a la zona derecha, apilados.
-     Dejamos completamente libre la zona del título.
-     -------------------------------------------------------- */
-
-  .experience-trigger {
-    width: clamp(125px, 15vw, 155px);
-    height: auto;
-    aspect-ratio: 1.32 / 1;
-  }
-
-  /* YOGA — derecha, arriba */
+  /* ========================================================
+     YOGA
+     Arriba a la derecha
+     ======================================================== */
 
   .experiences-dock .experience-trigger:nth-child(1) {
-    left: auto;
-    right: 4.5vw;
-    top: 18dvh;
+    position: fixed !important;
 
-    transform: none;
+    left: auto !important;
+    right: 4vw !important;
+
+    top: 17vh !important;
+
+    width: clamp(130px, 15vw, 175px) !important;
+    height: auto !important;
+
+    aspect-ratio: 1.32 / 1 !important;
+
+    transform: none !important;
   }
 
-  /* HORARIOS — derecha, debajo */
+
+  /* ========================================================
+     HORARIOS
+     Debajo de Yoga
+     ======================================================== */
 
   .experiences-dock .experience-trigger:nth-child(2) {
-    left: auto;
-    right: 4.5vw;
-    top: 42dvh;
+    position: fixed !important;
 
-    transform: none;
+    left: auto !important;
+    right: 4vw !important;
+
+    top: 43vh !important;
+
+    width: clamp(130px, 15vw, 175px) !important;
+    height: auto !important;
+
+    aspect-ratio: 1.32 / 1 !important;
+
+    transform: none !important;
   }
 
-  /* Anulamos el translateX heredado también en hover */
 
   .experiences-dock .experience-trigger:nth-child(1):hover,
   .experiences-dock .experience-trigger:nth-child(2):hover {
     transform:
       translateY(-3px)
-      scale(1.015);
+      scale(1.015) !important;
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      ANFITRIONES
-     Se queda en la zona central, pero desplazado ligeramente
-     hacia la derecha para liberar todavía más el título.
-     -------------------------------------------------------- */
+     Se mantiene protagonista,
+     pero fuera de la zona del título.
+     ======================================================== */
 
   .hosts-trigger {
-    left: 63%;
-    right: auto;
+    position: fixed !important;
 
-    top: 25dvh;
+    left: auto !important;
+    right: 23vw !important;
 
-    width: clamp(155px, 18vw, 190px);
+    top: 25vh !important;
 
-    transform: translateX(-50%);
+    width: clamp(165px, 18vw, 205px) !important;
+
+    height: auto !important;
+
+    aspect-ratio: 1.32 / 1 !important;
+
+    transform: none !important;
   }
+
 
   .hosts-trigger:hover {
     transform:
-      translateX(-50%)
       translateY(-4px)
-      scale(1.015);
+      scale(1.015) !important;
   }
+
+
+  /* ========================================================
+     BLOQUE PRINCIPAL
+
+     La izquierda queda reservada exclusivamente
+     para identidad + título + redes.
+     ======================================================== */
+
+  .hero-content {
+    left: 5vw !important;
+    right: auto !important;
+
+    width: 50vw !important;
+
+    bottom: 5vh !important;
+  }
+
+
+  /* Evitamos que el título invada la zona de tarjetas */
+
+  .hero h1 {
+    max-width: 50vw !important;
+  }
+
+
+  .hero-actions {
+    max-width: 50vw !important;
+  }
+}
 
 
   /* --------------------------------------------------------
