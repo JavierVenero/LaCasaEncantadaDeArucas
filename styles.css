@@ -95,7 +95,7 @@ main {
 
 
 /* ==========================================================
-   FOTOGRAFÍA PRINCIPAL — ESCRITORIO
+   FOTOGRAFÍA PRINCIPAL
    ========================================================== */
 
 .hero-image {
@@ -156,7 +156,6 @@ main {
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 50;
 
   height: 11.7vw;
@@ -184,7 +183,6 @@ main {
 
   overflow: visible;
   isolation: isolate;
-
   pointer-events: auto;
 }
 
@@ -310,6 +308,11 @@ main {
   padding: 0;
 }
 
+
+/* ==========================================================
+   YOGA / LOCALIZACIÓN
+   ========================================================== */
+
 .hero-kicker {
   margin: 0 0 0.85vw;
 
@@ -318,7 +321,6 @@ main {
   line-height: 1.15;
 
   letter-spacing: 0.19em;
-
   color: #e8c58d;
 
   text-shadow:
@@ -326,6 +328,11 @@ main {
 
   white-space: nowrap;
 }
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
 
 .hero h1 {
   margin: 0;
@@ -354,6 +361,11 @@ main {
 
   color: var(--cream-soft);
 }
+
+
+/* ==========================================================
+   SUBTÍTULO
+   ========================================================== */
 
 .hero-subtitle {
   margin: 1.17vw 0 0;
@@ -401,8 +413,8 @@ main {
     auto auto;
 
   column-gap: 0.59vw;
-  align-items: center;
 
+  align-items: center;
   overflow: hidden;
 
   border: 1px solid var(--border-card);
@@ -442,7 +454,6 @@ main {
 
   min-width: 0 !important;
   min-height: 0 !important;
-
   max-width: none !important;
   max-height: none !important;
 
@@ -463,7 +474,6 @@ main {
   line-height: 1;
 
   letter-spacing: 0.12em;
-
   white-space: nowrap;
 
   color: rgba(255, 255, 255, 0.72);
@@ -480,14 +490,17 @@ main {
   line-height: 1.05;
 
   white-space: nowrap;
-
   color: var(--white);
 }
+
+
+/* ==========================================================
+   WHATSAPP
+   ========================================================== */
 
 .hero-action-primary {
   background: var(--whatsapp-bg);
   border-color: transparent;
-
   color: var(--whatsapp-text);
 }
 
@@ -516,6 +529,7 @@ main {
 
 .live-message {
   position: fixed;
+
   z-index: 20;
 
   right: 4vw;
@@ -540,7 +554,6 @@ main {
   line-height: 1.2;
 
   white-space: nowrap;
-
   text-align: right;
 
   color: rgba(255, 255, 255, 0.96);
@@ -551,19 +564,26 @@ main {
 
 
 /* ==========================================================
-   TRES VENTANAS
-
-   IZQUIERDA  = YOGA
-   CENTRO     = ANFITRIONES
-   DERECHA    = HORARIOS
+   DOS TARJETAS
+   YOGA INTEGRAL + HORARIOS
    ========================================================== */
 
 .experiences-dock {
-  position: static;
-  width: auto;
-  height: auto;
+  position: fixed;
 
-  display: block;
+  z-index: 85;
+
+  left: 41vw;
+  top: 18.2vh;
+
+  width: min(25vw, 460px);
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 0.75vw;
 
   pointer-events: none;
 }
@@ -572,13 +592,9 @@ main {
   appearance: none;
   -webkit-appearance: none;
 
-  position: fixed;
+  position: relative;
 
-  z-index: 90;
-
-  top: 30.5vh;
-
-  width: clamp(170px, 13.4vw, 245px);
+  width: 100%;
   aspect-ratio: 1.32 / 1;
 
   margin: 0;
@@ -586,7 +602,9 @@ main {
 
   overflow: hidden;
 
-  border: 1px solid rgba(255, 248, 236, 0.36);
+  border:
+    1px solid rgba(255, 248, 236, 0.30);
+
   border-radius: 0.85vw;
 
   background: var(--green-deep);
@@ -608,23 +626,6 @@ main {
     box-shadow 0.3s ease;
 }
 
-
-/* YOGA — VENTANA IZQUIERDA */
-
-.experiences-dock .experience-trigger:nth-child(1) {
-  left: 19.5%;
-  transform: translateX(-50%);
-}
-
-
-/* HORARIOS — VENTANA DERECHA */
-
-.experiences-dock .experience-trigger:nth-child(2) {
-  left: 80.5%;
-  transform: translateX(-50%);
-}
-
-
 .experience-trigger::before {
   content: "";
 
@@ -636,9 +637,9 @@ main {
   background:
     linear-gradient(
       180deg,
-      rgba(7, 20, 13, 0.00) 10%,
-      rgba(7, 20, 13, 0.06) 38%,
-      rgba(7, 20, 13, 0.78) 100%
+      rgba(7, 20, 13, 0.03) 0%,
+      rgba(7, 20, 13, 0.08) 34%,
+      rgba(7, 20, 13, 0.72) 100%
     );
 
   pointer-events: none;
@@ -655,8 +656,6 @@ main {
   bottom: 0.65vw;
 
   width: 1.55vw;
-  min-width: 24px;
-
   height: 2px;
 
   background: var(--gold);
@@ -667,19 +666,16 @@ main {
 }
 
 .experience-trigger:hover {
-  border-color: rgba(255, 248, 236, 0.70);
+  transform:
+    translateY(-4px)
+    scale(1.025);
+
+  border-color:
+    rgba(255, 248, 236, 0.68);
 
   box-shadow:
     0 1.5vw 3.3vw rgba(0, 0, 0, 0.30),
     inset 0 1px 0 rgba(255, 255, 255, 0.10);
-}
-
-.experiences-dock .experience-trigger:nth-child(1):hover,
-.experiences-dock .experience-trigger:nth-child(2):hover {
-  transform:
-    translateX(-50%)
-    translateY(-4px)
-    scale(1.025);
 }
 
 .experience-trigger:hover::after {
@@ -695,7 +691,6 @@ main {
   position: absolute;
 
   z-index: 1;
-
   inset: 0;
 
   width: 100%;
@@ -710,7 +705,7 @@ main {
 }
 
 .experience-trigger:hover img {
-  transform: scale(1.06);
+  transform: scale(1.07);
 }
 
 .experience-trigger-copy {
@@ -733,7 +728,7 @@ main {
   margin: 0 0 0.25vw;
 
   font-size:
-    clamp(7px, 0.42vw, 9px);
+    clamp(6px, 0.42vw, 8px);
 
   font-weight: 700;
   line-height: 1;
@@ -743,7 +738,7 @@ main {
   color: var(--gold);
 
   text-shadow:
-    0 2px 7px rgba(0, 0, 0, 0.70);
+    0 2px 7px rgba(0, 0, 0, 0.55);
 }
 
 .experience-trigger-copy strong {
@@ -755,7 +750,7 @@ main {
     serif;
 
   font-size:
-    clamp(17px, 1.05vw, 22px);
+    clamp(14px, 1.05vw, 20px);
 
   font-weight: 400;
   line-height: 1;
@@ -763,8 +758,8 @@ main {
   color: var(--cream);
 
   text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.80),
-    0 7px 20px rgba(0, 0, 0, 0.40);
+    0 2px 8px rgba(0, 0, 0, 0.70),
+    0 7px 20px rgba(0, 0, 0, 0.30);
 }
 
 
@@ -775,230 +770,6 @@ main {
 .experience-trigger-schedule img {
   object-fit: cover;
   object-position: center top;
-}
-
-
-/* ==========================================================
-   ANFITRIONES — VENTANA CENTRAL
-   ========================================================== */
-
-.hosts-trigger {
-  appearance: none;
-  -webkit-appearance: none;
-
-  position: fixed;
-
-  z-index: 100;
-
-  left: 50%;
-  right: auto;
-
-  top: 30.5vh;
-
-  transform: translateX(-50%);
-
-  width: clamp(190px, 15vw, 275px);
-  aspect-ratio: 1.32 / 1;
-
-  height: auto;
-  min-width: 0;
-  max-width: none;
-  min-height: 0;
-
-  margin: 0;
-  padding: 0;
-
-  display: block;
-
-  overflow: hidden;
-
-  border: 2px solid rgba(225, 188, 128, 0.78);
-  border-radius: 0.95vw;
-
-  background: var(--green-deep);
-
-  box-shadow:
-    0 1.5vw 3.2vw rgba(0, 0, 0, 0.30),
-    0 0 0 3px rgba(16, 37, 26, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.10);
-
-  color: var(--cream);
-
-  cursor: pointer;
-  pointer-events: auto;
-
-  opacity: 1;
-  visibility: visible;
-
-  isolation: isolate;
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.hosts-trigger::before {
-  content: "";
-
-  position: absolute;
-
-  z-index: 2;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7, 20, 13, 0.00) 20%,
-      rgba(7, 20, 13, 0.05) 43%,
-      rgba(7, 20, 13, 0.58) 75%,
-      rgba(7, 20, 13, 0.92) 100%
-    );
-}
-
-.hosts-trigger::after {
-  content: "";
-
-  position: absolute;
-
-  z-index: 4;
-
-  left: 1.1vw;
-  bottom: 0.9vw;
-
-  width: 2.2vw;
-  min-width: 30px;
-  max-width: 46px;
-
-  height: 2px;
-
-  background: var(--gold);
-
-  opacity: 0.95;
-
-  pointer-events: none;
-
-  transition: width 0.35s ease;
-}
-
-.hosts-trigger:hover {
-  transform:
-    translateX(-50%)
-    translateY(-5px)
-    scale(1.025);
-
-  border-color: rgba(225, 188, 128, 1);
-
-  box-shadow:
-    0 2vw 4vw rgba(0, 0, 0, 0.36),
-    0 0 0 3px rgba(16, 37, 26, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.13);
-}
-
-.hosts-trigger:hover::after {
-  width: 3.2vw;
-}
-
-.hosts-trigger:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 5px;
-}
-
-.hosts-trigger img {
-  position: absolute;
-
-  z-index: 1;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  max-width: none;
-
-  object-fit: cover;
-  object-position: center 42%;
-
-  border-radius: 0;
-
-  transform: none;
-
-  transition:
-    transform 0.65s
-    cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.hosts-trigger:hover img {
-  transform: scale(1.025);
-}
-
-.hosts-trigger-copy {
-  position: absolute;
-
-  z-index: 3;
-
-  left: 1.1vw;
-  right: 1.1vw;
-  bottom: 1.5vw;
-
-  min-width: 0;
-
-  padding: 0;
-
-  display: block;
-
-  text-align: left;
-
-  pointer-events: none;
-}
-
-.hosts-trigger-copy small {
-  display: block;
-
-  margin: 0 0 0.3vw;
-
-  font-size:
-    clamp(7px, 0.5vw, 10px);
-
-  font-weight: 700;
-  line-height: 1.1;
-
-  letter-spacing: 0.19em;
-
-  color: var(--gold);
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.80);
-}
-
-.hosts-trigger-copy strong {
-  display: block;
-
-  margin: 0;
-
-  max-width: 95%;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(19px, 1.35vw, 28px);
-
-  font-weight: 400;
-  line-height: 0.98;
-
-  letter-spacing: -0.025em;
-
-  color: var(--cream);
-
-  text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.90),
-    0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
 
@@ -1043,8 +814,7 @@ main {
   position: absolute;
   inset: 0;
 
-  background:
-    rgba(5, 15, 10, 0.80);
+  background: rgba(5, 15, 10, 0.80);
 
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -1081,8 +851,7 @@ main {
     translateY(20px)
     scale(0.97);
 
-  transition:
-    transform 0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 .experience-modal.is-open .experience-card {
@@ -1244,7 +1013,7 @@ main {
 
 
 /* ==========================================================
-   HORARIOS — MODAL
+   MODAL ESPECÍFICO — HORARIOS
    ========================================================== */
 
 .experience-modal[data-experience="horarios"] .experience-card {
@@ -1277,6 +1046,235 @@ main {
   object-position: center;
 
   border-radius: 12px;
+}
+
+
+/* ==========================================================
+   ANFITRIONES
+   ========================================================== */
+
+.hosts-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+
+  position: fixed;
+
+  z-index: 100;
+
+  right: 4vw;
+  top: 46%;
+
+  transform: translateY(-50%);
+
+  width:
+    clamp(330px, 25vw, 460px);
+
+  height:
+    clamp(220px, 16.7vw, 305px);
+
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  display: block;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 248, 236, 0.34);
+
+  border-radius: 1.15vw;
+
+  background: #10251a;
+
+  box-shadow:
+    0 2.2vw 4.8vw rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  color: var(--cream);
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  opacity: 1;
+  visibility: visible;
+
+  isolation: isolate;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hosts-trigger::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 2;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 20, 13, 0.00) 25%,
+      rgba(7, 20, 13, 0.06) 44%,
+      rgba(7, 20, 13, 0.54) 75%,
+      rgba(7, 20, 13, 0.92) 100%
+    );
+}
+
+.hosts-trigger::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 4;
+
+  left: 1.45vw;
+  bottom: 1.35vw;
+
+  width: 2.55vw;
+  min-width: 35px;
+  max-width: 48px;
+
+  height: 2px;
+
+  background: var(--gold);
+
+  opacity: 0.94;
+
+  pointer-events: none;
+
+  transition: width 0.35s ease;
+}
+
+.hosts-trigger:hover {
+  transform:
+    translateY(-50%)
+    translateX(-5px)
+    scale(1.018);
+
+  border-color:
+    rgba(255, 248, 236, 0.68);
+
+  box-shadow:
+    0 2.8vw 5.5vw rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+.hosts-trigger:hover::after {
+  width: 3.7vw;
+}
+
+.hosts-trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+}
+
+.hosts-trigger img {
+  position: absolute;
+
+  z-index: 1;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 0;
+
+  transform: none;
+
+  background: #10251a;
+
+  transition:
+    transform 0.65s
+    cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hosts-trigger:hover img {
+  transform: scale(1.015);
+}
+
+.hosts-trigger-copy {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 1.45vw;
+  right: 1.45vw;
+  bottom: 2.05vw;
+
+  min-width: 0;
+
+  padding: 0;
+
+  display: block;
+
+  text-align: left;
+
+  pointer-events: none;
+}
+
+.hosts-trigger-copy small {
+  display: block;
+
+  margin: 0 0 0.43vw;
+
+  font-size:
+    clamp(8px, 0.57vw, 11px);
+
+  font-weight: 700;
+  line-height: 1.1;
+
+  letter-spacing: 0.19em;
+
+  color: var(--gold);
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.hosts-trigger-copy strong {
+  display: block;
+
+  margin: 0;
+
+  max-width: 85%;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(23px, 1.75vw, 34px);
+
+  font-weight: 400;
+  line-height: 0.98;
+
+  letter-spacing: -0.025em;
+
+  color: var(--cream);
+
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.90),
+    0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
 
@@ -1319,6 +1317,7 @@ main {
 
 .hosts-modal-backdrop {
   position: absolute;
+
   inset: 0;
 
   background:
@@ -1388,8 +1387,7 @@ main {
   object-fit: contain;
   object-position: center;
 
-  background:
-    #0b1b12;
+  background: #0b1b12;
 }
 
 .hosts-copy {
@@ -1532,74 +1530,65 @@ main {
 
 
 /* ==========================================================
-   TABLET TÁCTIL REAL
-   651px — 1100px
+   TABLET TÁCTIL
+   BASE COMÚN 651px — 1100px
 
-   CLAVE:
-   La fachada deja de usar cover.
-   Se ve la casa completa.
-   Las tres piezas quedan alineadas sobre las tres ventanas.
+   Objetivos:
+   - Fachada completa, nunca una sola ventana gigante.
+   - Logo integrado con el título, no flotando arriba.
+   - Yoga izquierda / anfitriones centro / horarios derecha.
+   - Nada invade el título.
+   - Vertical y horizontal tratados por separado.
    ========================================================== */
 
 @media (hover: none) and (pointer: coarse) and (min-width: 651px) and (max-width: 1100px) {
 
   .site-header {
-    height: 112px;
-    padding: 14px 20px;
+    height: 96px;
+    padding: 16px 24px;
   }
+
+
+  /* Logo superior fuera en tablet.
+     Se usa hero-logo dentro del contenido. */
 
   .brand {
-    width: 126px;
-    height: 74px;
+    display: none;
   }
 
-  .brand-logo {
-    width: 126px !important;
-    height: 74px !important;
-
-    transform: scale(1.18);
-  }
-
-  .brand::before {
-    left: -15px;
-    top: -12px;
-
-    width: 160px;
-    height: 100px;
-
-    filter: blur(7px);
-  }
 
   .language-switcher {
-    gap: 5px;
-    padding: 5px 8px;
+    margin-left: auto;
 
-    font-size: 13px;
+    gap: 5px;
+    padding: 6px 9px;
+
+    font-size: 14px;
 
     background:
-      rgba(14, 34, 23, 0.58);
+      rgba(14, 34, 23, 0.60);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .language-switcher button {
-    padding: 4px 7px;
-    border-radius: 6px;
+    padding: 5px 8px;
+    border-radius: 7px;
   }
 
 
-  /* --------------------------------------------------------
-     FACHADA TABLET COMPLETA
-     -------------------------------------------------------- */
+  /* ========================================================
+     FACHADA TABLET
+     Toda la anchura de la imagen permanece visible.
+     ======================================================== */
 
   .hero-image {
     position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: auto;
+    inset: 0;
 
     width: 100%;
-    height: 66dvh;
+    height: 100%;
 
     overflow: hidden;
 
@@ -1623,72 +1612,114 @@ main {
     position: absolute;
     inset: 0;
 
+    pointer-events: none;
+
     background:
       linear-gradient(
         180deg,
         rgba(16, 37, 26, 0.00) 0%,
-        rgba(16, 37, 26, 0.00) 54%,
-        rgba(16, 37, 26, 0.08) 62%,
-        rgba(16, 37, 26, 0.18) 68%,
-        rgba(16, 37, 26, 0.32) 74%,
-        rgba(16, 37, 26, 0.50) 80%,
-        rgba(16, 37, 26, 0.70) 87%,
-        rgba(16, 37, 26, 0.88) 94%,
+        rgba(16, 37, 26, 0.00) 38%,
+        rgba(16, 37, 26, 0.08) 45%,
+        rgba(16, 37, 26, 0.22) 51%,
+        rgba(16, 37, 26, 0.46) 58%,
+        rgba(16, 37, 26, 0.70) 65%,
+        rgba(16, 37, 26, 0.88) 72%,
+        rgba(16, 37, 26, 0.97) 78%,
+        var(--green-deep) 84%,
         var(--green-deep) 100%
       );
-
-    pointer-events: none;
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      CONTENIDO TABLET
-     -------------------------------------------------------- */
+     ======================================================== */
 
   .hero-content {
-    left: 42px;
-    right: 42px;
-    bottom: 38px;
+    left:
+      clamp(40px, 7vw, 76px);
+
+    right:
+      clamp(40px, 7vw, 76px);
 
     width: auto;
   }
 
+
+  .hero-logo {
+    display: block !important;
+
+    width:
+      clamp(132px, 16vw, 180px);
+
+    height: auto;
+
+    margin:
+      0 0 10px 0;
+
+    object-fit: contain;
+    object-position: left center;
+
+    filter:
+      drop-shadow(
+        0 2px 2px
+        rgba(0, 0, 0, 0.78)
+      )
+      drop-shadow(
+        0 7px 16px
+        rgba(0, 0, 0, 0.42)
+      );
+  }
+
+
   .hero-kicker {
     margin-bottom: 9px;
 
-    font-size: 12px;
+    font-size:
+      clamp(12px, 1.5vw, 16px);
+
+    white-space: normal;
   }
+
 
   .hero h1 {
     font-size:
-      clamp(64px, 8.4vw, 88px);
+      clamp(68px, 8.6vw, 96px);
 
-    line-height: 0.89;
+    line-height: 0.88;
   }
+
 
   .hero h1 span {
     margin-left: 28px;
   }
 
-  .hero-subtitle {
-    margin-top: 14px;
 
-    font-size: 16px;
+  .hero-subtitle {
+    margin-top: 13px;
+
+    font-size:
+      clamp(15px, 1.8vw, 18px);
+
+    white-space: normal;
   }
+
 
   .hero-actions {
     width:
-      min(690px, 100%);
+      min(760px, 100%);
 
-    margin-top: 15px;
+    margin-top: 14px;
 
     gap: 8px;
   }
 
+
   .hero-action {
     height: 64px;
 
-    padding: 9px 11px;
+    padding:
+      9px 11px;
 
     grid-template-columns:
       24px minmax(0, 1fr);
@@ -1698,112 +1729,127 @@ main {
     border-radius: 12px;
   }
 
+
   .hero-action svg {
     width: 23px !important;
     height: 23px !important;
   }
 
+
   .hero-action span {
     font-size: 7px;
   }
 
+
   .hero-action strong {
     font-size: 13px;
   }
+
 
   .live-message {
     display: none;
   }
 
 
-  /* --------------------------------------------------------
-     TRES VENTANAS TABLET
-     -------------------------------------------------------- */
+  /* ========================================================
+     YOGA + HORARIOS TABLET
+
+     Se colocan extremos izquierda/derecha.
+     ======================================================== */
+
+  .experiences-dock {
+    left: 8vw;
+    right: 8vw;
+
+    width: auto;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        clamp(155px, 18vw, 220px)
+      );
+
+    justify-content:
+      space-between;
+
+    gap: 0;
+  }
+
 
   .experience-trigger {
-    top:
-      clamp(
-        180px,
-        21dvh,
-        235px
-      );
+    width: 100%;
 
-    width:
-      clamp(
-        145px,
-        18vw,
-        185px
-      );
+    aspect-ratio:
+      1.32 / 1;
 
     border-radius: 14px;
   }
 
-  .experiences-dock .experience-trigger:nth-child(1) {
-    left: 19.5%;
-  }
-
-  .experiences-dock .experience-trigger:nth-child(2) {
-    left: 80.5%;
-  }
 
   .experience-trigger::after {
-    left: 12px;
-    bottom: 10px;
+    left: 13px;
+    bottom: 11px;
 
-    width: 28px;
+    width: 30px;
   }
+
 
   .experience-trigger-copy {
-    left: 12px;
-    right: 10px;
-    bottom: 22px;
+    left: 13px;
+    right: 12px;
+    bottom: 24px;
   }
+
 
   .experience-trigger-copy small {
     margin-bottom: 4px;
 
-    font-size: 7px;
+    font-size: 8px;
   }
+
 
   .experience-trigger-copy strong {
     font-size:
       clamp(
-        16px,
+        18px,
         2vw,
-        19px
+        24px
       );
   }
 
 
-  /* --------------------------------------------------------
-     ANFITRIONES TABLET — VENTANA CENTRAL
-     -------------------------------------------------------- */
+  /* ========================================================
+     ANFITRIONES TABLET
+
+     Centrados físicamente en la ventana central.
+     ======================================================== */
 
   .hosts-trigger {
     left: 50%;
     right: auto;
 
-    top:
-      clamp(
-        170px,
-        20dvh,
-        225px
-      );
+    bottom: auto;
+
+    transform:
+      translateX(-50%);
 
     width:
       clamp(
-        165px,
-        20.5vw,
-        210px
+        185px,
+        22vw,
+        250px
       );
 
     height: auto;
 
-    border-radius: 15px;
+    aspect-ratio:
+      1.32 / 1;
 
-    transform:
-      translateX(-50%);
+    border-radius: 16px;
   }
+
 
   .hosts-trigger:hover {
     transform:
@@ -1812,105 +1858,80 @@ main {
       scale(1.015);
   }
 
-  .hosts-trigger::after {
-    left: 14px;
-    bottom: 12px;
 
-    width: 34px;
+  .hosts-trigger::after {
+    left: 16px;
+    bottom: 14px;
+
+    width: 38px;
   }
+
 
   .hosts-trigger-copy {
-    left: 14px;
-    right: 14px;
-    bottom: 28px;
+    left: 16px;
+    right: 16px;
+    bottom: 31px;
   }
+
 
   .hosts-trigger-copy small {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 
-    font-size: 7px;
+    font-size: 8px;
   }
+
 
   .hosts-trigger-copy strong {
     font-size:
       clamp(
-        18px,
-        2.25vw,
-        22px
+        20px,
+        2.2vw,
+        27px
       );
   }
 
 
-  /* --------------------------------------------------------
-     MODALES TABLET
-     -------------------------------------------------------- */
+  .hosts-trigger img {
+    object-fit: contain;
+    object-position: center;
 
-  .experience-modal,
-  .hosts-modal {
-    padding: 18px;
+    background:
+      var(--green-deep);
+
+    transform: none;
   }
+
+
+  /* ========================================================
+     MODALES TABLET
+     ======================================================== */
 
   .experience-card,
   .hosts-card {
     width:
-      min(760px, 94vw);
+      min(760px, 92vw);
 
-    max-height:
-      calc(100dvh - 36px);
+    grid-template-columns:
+      1fr;
 
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
 
-    overflow: hidden;
-
-    border-radius: 20px;
+    overscroll-behavior:
+      contain;
   }
+
 
   .experience-photo {
-    width: 100%;
-
     height:
-      min(37dvh, 330px);
+      min(43vh, 390px);
 
-    min-height: 0;
-
-    flex:
-      0 0 auto;
+    flex: none;
   }
 
-  .experience-copy {
-    flex:
-      0 0 auto;
 
-    padding:
-      24px 28px 27px;
-
-    justify-content:
-      flex-start;
-  }
-
-  .experience-copy h2 {
-    margin-bottom: 16px;
-
-    font-size:
-      clamp(
-        38px,
-        5.2vw,
-        52px
-      );
-  }
-
-  .experience-text {
-    max-width: none;
-
-    font-size: 16px;
-    line-height: 1.48;
-  }
-
-  .experience-signature {
-    margin-top: 14px;
-
-    font-size: 20px;
+  .experience-copy,
+  .hosts-copy {
+    padding: 28px;
   }
 
 
@@ -1918,107 +1939,181 @@ main {
 
   .experience-modal[data-experience="horarios"] .experience-card {
     width:
-      min(760px, 94vw);
+      min(700px, 92vw);
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
 
-    grid-template-columns:
-      minmax(0, 1.04fr)
-      minmax(0, 0.96fr);
-
-    overflow: hidden;
+    overflow-y: auto;
   }
+
 
   .experience-modal[data-experience="horarios"] .experience-photo {
-    width: auto;
-    height: auto;
+    height:
+      min(55vh, 540px);
 
-    padding: 14px;
-
-    align-self: stretch;
+    padding: 16px;
   }
+
 
   .experience-modal[data-experience="horarios"] .experience-photo img {
-    width: 100%;
-    height: 100%;
-
-    max-height:
-      calc(100dvh - 64px);
+    max-height: none;
 
     object-fit: contain;
-  }
-
-  .experience-modal[data-experience="horarios"] .experience-copy {
-    align-self: center;
-
-    padding: 26px;
-  }
-
-  .experience-modal[data-experience="horarios"] .experience-copy h2 {
-    font-size:
-      clamp(
-        33px,
-        4.5vw,
-        45px
-      );
   }
 
 
   /* ANFITRIONES MODAL TABLET */
 
   .hosts-photo {
-    width: 100%;
+    height:
+      min(46vh, 410px);
 
-    height: auto;
-
-    aspect-ratio:
-      1408 / 1086;
-
-    max-height: 43dvh;
-
-    flex:
-      0 0 auto;
+    flex: none;
   }
+
 
   .hosts-photo img {
     object-fit: contain;
-    object-position: center;
   }
 
-  .hosts-copy {
-    flex:
-      0 0 auto;
+}
 
-    padding:
-      24px 28px 27px;
 
-    justify-content:
-      flex-start;
-  }
+/* ==========================================================
+   TABLET VERTICAL
+   ========================================================== */
 
-  .hosts-copy h2 {
-    margin-bottom: 16px;
+@media
+  (hover: none)
+  and (pointer: coarse)
+  and (min-width: 651px)
+  and (max-width: 1100px)
+  and (orientation: portrait) {
 
-    font-size:
-      clamp(
-        40px,
-        5.4vw,
-        54px
+  /* Las tres puertas se asientan sobre las ventanas,
+     todavía dentro de la zona fotográfica. */
+
+  .experiences-dock {
+    top: 26dvh;
+
+    left: 7vw;
+    right: 7vw;
+
+    grid-template-columns:
+      repeat(
+        2,
+        clamp(145px, 20vw, 180px)
       );
   }
 
-  .hosts-copy > p:not(.hosts-eyebrow):not(.hosts-signature) {
-    max-width: none;
 
-    font-size: 16px;
-    line-height: 1.48;
+  .hosts-trigger {
+    top: 25.8dvh;
+
+    width:
+      clamp(
+        180px,
+        24vw,
+        220px
+      );
   }
 
-  .hosts-signature {
-    margin-top: 14px;
 
-    font-size: 20px;
+  /* Se elimina el enorme vacío intermedio.
+     El bloque principal comienza mucho antes. */
+
+  .hero-content {
+    top: 51dvh;
+    bottom: auto;
   }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        66px,
+        9.4vw,
+        88px
+      );
+  }
+
+
+  .hero-actions {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================================
+   TABLET HORIZONTAL
+   ========================================================== */
+
+@media
+  (hover: none)
+  and (pointer: coarse)
+  and (min-width: 651px)
+  and (max-width: 1100px)
+  and (orientation: landscape) {
+
+  /* Las tres tarjetas quedan por encima del título.
+     Ninguna pisa La Casa Encantada. */
+
+  .experiences-dock {
+    top: 30dvh;
+  }
+
+
+  .hosts-trigger {
+    top: 29.6dvh;
+  }
+
+
+  .hero-content {
+    top: auto;
+
+    bottom: 28px;
+
+    left: 6vw;
+    right: auto;
+
+    width:
+      min(
+        58vw,
+        720px
+      );
+  }
+
+
+  .hero-logo {
+    width:
+      clamp(
+        120px,
+        12vw,
+        150px
+      );
+  }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        62px,
+        7vw,
+        86px
+      );
+  }
+
+
+  .hero-actions {
+    width:
+      min(
+        650px,
+        100%
+      );
+  }
+
 }
 
 
@@ -2036,6 +2131,9 @@ main {
       14px
       6px;
   }
+
+
+  /* CABECERA */
 
   .brand {
     display: none;
@@ -2056,9 +2154,7 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     FACHADA COMPLETA MÓVIL
-     -------------------------------------------------------- */
+  /* FACHADA */
 
   .hero-image {
     position: absolute;
@@ -2069,7 +2165,7 @@ main {
     bottom: auto;
 
     width: 100%;
-    height: 56dvh;
+    height: 55dvh;
 
     overflow: hidden;
 
@@ -2082,7 +2178,6 @@ main {
 
   .hero-image img {
     opacity: 0;
-
     animation: none;
     transform: none;
   }
@@ -2114,9 +2209,7 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     CONTENIDO PRINCIPAL
-     -------------------------------------------------------- */
+  /* CONTENIDO PRINCIPAL */
 
   .hero-content {
     left: 18px;
@@ -2131,13 +2224,16 @@ main {
     width: auto;
   }
 
+
+  /* LOGO PRINCIPAL */
+
   .hero-logo {
     display: block !important;
 
     width: 118px;
     height: auto;
 
-    margin: 0 0 10px;
+    margin: 0 0 10px 0;
 
     object-fit: contain;
     object-position: left center;
@@ -2189,6 +2285,9 @@ main {
     white-space: normal;
   }
 
+
+  /* ACCESOS SOCIALES */
+
   .hero-actions {
     width: 100%;
 
@@ -2231,31 +2330,44 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     LAS TRES VENTANAS — MÓVIL
+  /* ========================================================
+     YOGA + HORARIOS
+     ======================================================== */
 
-     Tres círculos alineados:
-     Yoga / Anfitriones / Horarios
-     -------------------------------------------------------- */
+  .experiences-dock {
+    position: fixed;
+
+    z-index: 85;
+
+    top: 103px;
+    left: 18px;
+    right: auto;
+
+    width: auto;
+
+    transform: none;
+
+    display: flex;
+
+    gap: 14px;
+
+    overflow: visible;
+  }
 
   .experience-trigger {
-    top:
-      clamp(
-        124px,
-        17.5dvh,
-        165px
-      );
-
-    width: 70px;
-    height: 70px;
+    width: 64px;
+    height: 64px;
 
     aspect-ratio: auto;
+
+    flex:
+      0 0 64px;
 
     overflow: visible;
 
     border:
       1px solid
-      rgba(255, 248, 236, 0.55);
+      rgba(255, 248, 236, 0.50);
 
     border-radius: 50%;
 
@@ -2264,15 +2376,7 @@ main {
 
     box-shadow:
       0 9px 22px
-      rgba(0, 0, 0, 0.34);
-  }
-
-  .experiences-dock .experience-trigger:nth-child(1) {
-    left: 19%;
-  }
-
-  .experiences-dock .experience-trigger:nth-child(2) {
-    left: 81%;
+      rgba(0, 0, 0, 0.32);
   }
 
   .experience-trigger::before {
@@ -2290,26 +2394,14 @@ main {
     border-radius: 50%;
   }
 
-  .experiences-dock .experience-trigger:nth-child(1):hover,
-  .experiences-dock .experience-trigger:nth-child(2):hover {
-    transform:
-      translateX(-50%);
+  .experience-trigger:hover {
+    transform: none;
   }
 
-
-  /* YOGA */
-
-  .experiences-dock .experience-trigger:nth-child(1) img {
-    object-fit: cover;
-    object-position: center;
-  }
-
-
-  /* HORARIOS */
 
   .experience-trigger-schedule {
     border-color:
-      rgba(225, 188, 128, 0.90);
+      rgba(225, 188, 128, 0.88);
   }
 
   .experience-trigger-schedule img {
@@ -2317,8 +2409,6 @@ main {
     object-position: center top;
   }
 
-
-  /* LEYENDAS LATERALES */
 
   .experience-trigger-copy {
     display: block;
@@ -2333,7 +2423,7 @@ main {
 
     bottom: auto;
 
-    width: 94px;
+    width: 88px;
 
     transform:
       translateX(-50%);
@@ -2359,8 +2449,9 @@ main {
       Helvetica,
       sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
+
     line-height: 1.08;
 
     letter-spacing: 0;
@@ -2378,27 +2469,22 @@ main {
   }
 
 
-  /* --------------------------------------------------------
-     ANFITRIONES — CÍRCULO CENTRAL
-     -------------------------------------------------------- */
+  /* ========================================================
+     ANFITRIONES
+     ======================================================== */
 
   .hosts-trigger {
-    left: 50%;
-    right: auto;
+    top: 95px;
+    right: 18px;
 
-    top:
-      clamp(
-        114px,
-        16.5dvh,
-        155px
-      );
+    left: auto;
 
-    width: 88px;
-    min-width: 88px;
-    max-width: 88px;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
 
-    height: 88px;
-    min-height: 88px;
+    height: 92px;
+    min-height: 92px;
 
     aspect-ratio: auto;
 
@@ -2406,26 +2492,24 @@ main {
 
     border:
       2px solid
-      rgba(225, 188, 128, 0.94);
+      rgba(225, 188, 128, 0.90);
 
     border-radius: 50%;
 
-    transform:
-      translateX(-50%);
+    transform: none;
 
     background:
       rgba(16, 37, 26, 0.94);
 
     box-shadow:
       0 14px 34px
-      rgba(0, 0, 0, 0.40),
+      rgba(0, 0, 0, 0.38),
       0 0 0 4px
       rgba(16, 37, 26, 0.35);
   }
 
   .hosts-trigger:hover {
-    transform:
-      translateX(-50%);
+    transform: none;
   }
 
   .hosts-trigger::before,
@@ -2433,12 +2517,13 @@ main {
     display: none;
   }
 
+
   .hosts-trigger img {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-    object-position: center 42%;
+    object-fit: contain;
+    object-position: center;
 
     border-radius: 50%;
 
@@ -2447,6 +2532,7 @@ main {
     background:
       var(--green-deep);
   }
+
 
   .hosts-trigger-copy {
     display: block;
@@ -2457,11 +2543,11 @@ main {
     right: auto;
 
     top:
-      calc(100% + 7px);
+      calc(100% + 8px);
 
     bottom: auto;
 
-    width: 118px;
+    width: 116px;
 
     transform:
       translateX(-50%);
@@ -2485,6 +2571,7 @@ main {
 
     font-size: 7px;
     font-weight: 700;
+
     line-height: 1;
 
     letter-spacing: 0.15em;
@@ -2509,6 +2596,7 @@ main {
 
     font-size: 12px;
     font-weight: 400;
+
     line-height: 1.05;
 
     letter-spacing: 0;
@@ -2525,9 +2613,9 @@ main {
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      MODAL YOGA
-     -------------------------------------------------------- */
+     ======================================================== */
 
   .experience-modal {
     padding:
@@ -2671,9 +2759,9 @@ main {
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      HORARIOS — MODAL MÓVIL
-     -------------------------------------------------------- */
+     ======================================================== */
 
   .experience-modal[data-experience="horarios"] {
     padding:
@@ -2712,14 +2800,14 @@ main {
 
   .experience-modal[data-experience="horarios"] .experience-photo {
     width: 100%;
+
     height: auto;
 
     min-height: 0;
 
     padding: 8px;
 
-    flex:
-      0 0 auto;
+    flex: 0 0 auto;
 
     background:
       #0b1b12;
@@ -2772,9 +2860,9 @@ main {
   }
 
 
-  /* --------------------------------------------------------
+  /* ========================================================
      MODAL ANFITRIONES
-     -------------------------------------------------------- */
+     ======================================================== */
 
   .hosts-modal {
     padding:
@@ -2813,6 +2901,7 @@ main {
 
     border-radius: 20px;
   }
+
 
   .hosts-photo {
     width: 100%;
@@ -2927,34 +3016,6 @@ main {
 
 @media (hover: none) and (pointer: coarse) and (max-width: 650px) and (max-height: 760px) {
 
-  .experience-trigger {
-    top:
-      clamp(
-        108px,
-        16dvh,
-        135px
-      );
-
-    width: 62px;
-    height: 62px;
-  }
-
-  .hosts-trigger {
-    top:
-      clamp(
-        101px,
-        15dvh,
-        128px
-      );
-
-    width: 78px;
-    min-width: 78px;
-    max-width: 78px;
-
-    height: 78px;
-    min-height: 78px;
-  }
-
   .experience-photo {
     height: 27dvh;
   }
@@ -2988,9 +3049,11 @@ main {
 
   .experience-signature {
     margin-top: 10px;
-
     font-size: 17px;
   }
+
+
+  /* HORARIOS */
 
   .experience-modal[data-experience="horarios"] .experience-photo {
     height: auto;
@@ -3019,6 +3082,9 @@ main {
     font-size: 13px;
     line-height: 1.35;
   }
+
+
+  /* ANFITRIONES */
 
   .hosts-photo {
     aspect-ratio:
@@ -3054,7 +3120,6 @@ main {
 
   .hosts-signature {
     margin-top: 10px;
-
     font-size: 17px;
   }
 }
@@ -3179,20 +3244,27 @@ main {
     font-size: 16px;
   }
 
-  .experience-trigger {
-    top: 300px;
 
-    width: 245px;
+  /* YOGA + HORARIOS ULTRAWIDE */
 
-    border-radius: 16px;
+  .experiences-dock {
+    left: 700px;
+    top: 150px;
+
+    width: 390px;
+
+    gap: 13px;
   }
 
-  .hosts-trigger {
-    top: 290px;
+  .experience-trigger {
+    border-radius: 15px;
+  }
 
-    width: 280px;
+  .experience-trigger::after {
+    left: 15px;
+    bottom: 12px;
 
-    border-radius: 17px;
+    width: 30px;
   }
 
   .experience-trigger-copy {
@@ -3208,23 +3280,45 @@ main {
   }
 
   .experience-trigger-copy strong {
-    font-size: 20px;
+    font-size: 19px;
+  }
+
+
+  /* ANFITRIONES ULTRAWIDE */
+
+  .hosts-trigger {
+    right: 72px;
+    left: auto;
+
+    width: 460px;
+    height: 305px;
+
+    aspect-ratio: auto;
+
+    border-radius: 21px;
+  }
+
+  .hosts-trigger::after {
+    left: 26px;
+    bottom: 24px;
+
+    width: 46px;
   }
 
   .hosts-trigger-copy {
-    left: 18px;
-    right: 18px;
-    bottom: 34px;
+    left: 26px;
+    right: 26px;
+    bottom: 47px;
   }
 
   .hosts-trigger-copy small {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .hosts-trigger-copy strong {
-    font-size: 25px;
+    font-size: 32px;
   }
 
   .hosts-copy h2 {
