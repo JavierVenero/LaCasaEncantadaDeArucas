@@ -3586,4 +3586,94 @@ main {
   .hosts-modal {
     transition: none;
   }
+
+  /* ==========================================================
+   TABLET HORIZONTAL — DISTRIBUCIÓN ESPECÍFICA
+   NO AFECTA A TABLET VERTICAL, MÓVIL NI ESCRITORIO
+   ========================================================== */
+
+@media (hover: none) and (pointer: coarse)
+       and (min-width: 651px) and (max-width: 1100px)
+       and (orientation: landscape) {
+
+  /* --------------------------------------------------------
+     YOGA + HORARIOS
+     Los dos pasan a la zona derecha, apilados.
+     Dejamos completamente libre la zona del título.
+     -------------------------------------------------------- */
+
+  .experience-trigger {
+    width: clamp(125px, 15vw, 155px);
+    height: auto;
+    aspect-ratio: 1.32 / 1;
+  }
+
+  /* YOGA — derecha, arriba */
+
+  .experiences-dock .experience-trigger:nth-child(1) {
+    left: auto;
+    right: 4.5vw;
+    top: 18dvh;
+
+    transform: none;
+  }
+
+  /* HORARIOS — derecha, debajo */
+
+  .experiences-dock .experience-trigger:nth-child(2) {
+    left: auto;
+    right: 4.5vw;
+    top: 42dvh;
+
+    transform: none;
+  }
+
+  /* Anulamos el translateX heredado también en hover */
+
+  .experiences-dock .experience-trigger:nth-child(1):hover,
+  .experiences-dock .experience-trigger:nth-child(2):hover {
+    transform:
+      translateY(-3px)
+      scale(1.015);
+  }
+
+
+  /* --------------------------------------------------------
+     ANFITRIONES
+     Se queda en la zona central, pero desplazado ligeramente
+     hacia la derecha para liberar todavía más el título.
+     -------------------------------------------------------- */
+
+  .hosts-trigger {
+    left: 63%;
+    right: auto;
+
+    top: 25dvh;
+
+    width: clamp(155px, 18vw, 190px);
+
+    transform: translateX(-50%);
+  }
+
+  .hosts-trigger:hover {
+    transform:
+      translateX(-50%)
+      translateY(-4px)
+      scale(1.015);
+  }
+
+
+  /* --------------------------------------------------------
+     TÍTULO
+     No modificamos tamaño ni proporciones.
+     Solo garantizamos su zona izquierda.
+     -------------------------------------------------------- */
+
+  .hero-content {
+    left: 42px;
+    right: auto;
+
+    width: min(54vw, 590px);
+  }
+}
 }
