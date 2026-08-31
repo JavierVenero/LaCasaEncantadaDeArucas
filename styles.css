@@ -3748,4 +3748,67 @@ main {
         rgba(0, 0, 0, 0.45)
       );
   }
+
+  /* ==========================================================
+   MÓVIL — REALCE VISUAL DE ACCESOS Y LOGO
+   ========================================================== */
+
+@media (hover: none) and (pointer: coarse) and (max-width: 650px) {
+
+  .experience-trigger,
+  .hosts-trigger {
+    box-shadow:
+      0 0 0 2px rgba(255, 248, 236, 0.28),
+      0 0 0 5px rgba(225, 188, 128, 0.10),
+      0 10px 24px rgba(0, 0, 0, 0.42);
+  }
+
+  .experience-trigger {
+    border-color: rgba(255, 248, 236, 0.82);
+  }
+
+  .hosts-trigger {
+    border-color: rgba(225, 188, 128, 0.96);
+  }
+
+  .hero-logo {
+    position: relative;
+    z-index: 1;
+
+    filter:
+      drop-shadow(0 2px 2px rgba(0, 0, 0, 0.85))
+      drop-shadow(0 8px 18px rgba(0, 0, 0, 0.52))
+      drop-shadow(0 0 12px rgba(225, 188, 128, 0.18));
+  }
+
+  .hero-content::before {
+    content: "";
+
+    position: absolute;
+
+    left: -18px;
+    top: -18px;
+
+    width: min(76vw, 310px);
+    height: 220px;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 42% 42%,
+        rgba(225, 188, 128, 0.12) 0%,
+        rgba(10, 28, 18, 0.28) 42%,
+        rgba(10, 28, 18, 0) 74%
+      );
+
+    filter: blur(8px);
+  }
+
+  .hero-content > * {
+    position: relative;
+    z-index: 1;
+  }
 }
