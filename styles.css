@@ -3713,4 +3713,26 @@ main {
   .hosts-modal {
     transition: none;
   }
+
+  /* =========================================================
+   MÓVIL — LOGO COMO IDENTIDAD PRINCIPAL DEL HERO
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* Ocultamos el título tipográfico grande */
+  .hero-content h1 {
+    display: none;
+  }
+
+  /* El logo pasa a ocupar su lugar */
+  .hero-logo {
+    display: block;
+    width: min(58vw, 250px);
+    height: auto;
+    margin: 12px 0 14px 0;
+    object-fit: contain;
+  }
+
+}
 }
