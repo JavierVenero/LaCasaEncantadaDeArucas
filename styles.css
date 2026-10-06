@@ -66,6 +66,7 @@ main {
   padding: 0;
   overflow: hidden;
   background: var(--green-deep);
+  
 }
 
 .hero-image {
@@ -1167,6 +1168,8 @@ main {
 
 /* =========================================================
    MÓVIL — COMPOSICIÓN CORREGIDA
+   Yoga / Horarios / Tarifas sobre la fachada.
+   Anfitriones en la zona verde, a la derecha del logotipo.
    ========================================================= */
 
 @media (max-width:650px) {
@@ -1176,7 +1179,9 @@ main {
     padding: max(11px,env(safe-area-inset-top)) 14px 6px;
   }
 
-  .brand { display: none; }
+  .brand {
+    display: none;
+  }
 
   .language-switcher {
     margin-left: auto;
@@ -1186,6 +1191,8 @@ main {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
+
+  /* FOTO DE LA CASA */
 
   .hero-image {
     position: absolute;
@@ -1212,6 +1219,7 @@ main {
     content: "";
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background: linear-gradient(
       180deg,
       rgba(16,37,26,0) 0%,
@@ -1229,6 +1237,8 @@ main {
     );
   }
 
+  /* CONTENIDO INFERIOR */
+
   .hero-content {
     left: 18px;
     right: 18px;
@@ -1236,7 +1246,9 @@ main {
     width: auto;
   }
 
-  .hero h1 { display: none !important; }
+  .hero h1 {
+    display: none !important;
+  }
 
   .hero-logo {
     display: block !important;
@@ -1292,6 +1304,8 @@ main {
     white-space: normal;
   }
 
+  /* BOTONES SOCIALES: 2 + 2 + 1 */
+
   .hero-actions {
     width: 100%;
     margin-top: 12px;
@@ -1312,13 +1326,21 @@ main {
     height: 22px !important;
   }
 
-  .hero-action span { font-size: 7px; }
-  .hero-action strong { font-size: 13px; }
+  .hero-action span {
+    font-size: 7px;
+  }
 
-  .live-message { display: none; }
+  .hero-action strong {
+    font-size: 13px;
+  }
 
-  /* Yoga / Horarios / Tarifas:
-     tres accesos equilibrados sobre la fachada */
+  .live-message {
+    display: none;
+  }
+
+  /* =======================================================
+     YOGA / HORARIOS / TARIFAS
+     ======================================================= */
 
   .experience-trigger {
     position: fixed;
@@ -1356,7 +1378,9 @@ main {
     background: rgba(7,20,13,.03);
   }
 
-  .experience-trigger::after { display: none; }
+  .experience-trigger::after {
+    display: none;
+  }
 
   .experience-trigger img {
     border-radius: 50%;
@@ -1391,7 +1415,9 @@ main {
     pointer-events: none;
   }
 
-  .experience-trigger-copy small { display: none; }
+  .experience-trigger-copy small {
+    display: none;
+  }
 
   .experience-trigger-copy strong {
     display: block;
@@ -1400,6 +1426,7 @@ main {
     font-size: 11px;
     font-weight: 600;
     line-height: 1.08;
+    letter-spacing: 0;
     white-space: normal;
     color: rgba(255,248,236,.98);
     text-shadow:
@@ -1407,49 +1434,48 @@ main {
       0 3px 10px rgba(0,0,0,.65);
   }
 
-  /* =====================================================
-     ANFITRIONES MÓVIL
-     En la zona verde, a la derecha del logotipo.
-     Ya NO comparte la fila de Yoga/Horarios/Tarifas.
-     ===================================================== */
+  /* =======================================================
+     NUESTROS ANFITRIONES
+     Zona verde, a la derecha del logotipo.
+     Independiente de la fila superior.
+     ======================================================= */
 
   .hosts-trigger {
     position: fixed !important;
-    left: auto !important;
-    right: 7vw !important;
+    z-index: 100;
+    left: 78% !important;
+    right: auto !important;
+    top: 48dvh !important;
 
-    /*
-       La fachada termina en 56dvh.
-       Lo colocamos claramente dentro de la zona verde,
-       pero en la franja visual del logotipo.
-    */
-    top: 58dvh !important;
+    width: 72px !important;
+    min-width: 72px !important;
+    max-width: 72px !important;
 
-    width: 78px !important;
-    min-width: 78px !important;
-    max-width: 78px !important;
-    height: 78px !important;
-    min-height: 78px !important;
-    aspect-ratio: 1 !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
 
-    margin: 0 !important;
-    padding: 0 !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: 0;
+    padding: 0;
 
-    overflow: visible !important;
-    border: 2px solid rgba(225,188,128,.96) !important;
-    border-radius: 50% !important;
+    overflow: visible;
 
-    transform: none !important;
+    border: 2px solid rgba(225,188,128,.96);
+    border-radius: 50%;
 
-    background: rgba(16,37,26,.96);
+    background: var(--green-deep);
+
+    transform: translateX(-50%) !important;
+
     box-shadow:
-      0 0 0 2px rgba(255,248,236,.25),
+      0 0 0 2px rgba(255,248,236,.24),
       0 0 0 5px rgba(225,188,128,.10),
       0 10px 24px rgba(0,0,0,.42);
   }
 
   .hosts-trigger:hover {
-    transform: none !important;
+    transform: translateX(-50%) !important;
   }
 
   .hosts-trigger::before,
@@ -1462,6 +1488,7 @@ main {
     inset: 0;
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
     object-position: center 42%;
     border-radius: 50%;
@@ -1476,19 +1503,19 @@ main {
   .hosts-trigger-copy {
     display: block;
     position: absolute;
+    z-index: 3;
 
-    /*
-       Texto alineado bajo el círculo y desplazado hacia
-       la izquierda para que jamás se corte por el borde.
-    */
     left: 50%;
     right: auto;
     top: calc(100% + 7px);
     bottom: auto;
 
-    width: 142px;
-    transform: translateX(-62%);
+    width: 124px;
+    min-width: 0;
+
     padding: 0;
+
+    transform: translateX(-50%);
 
     text-align: center;
     pointer-events: none;
@@ -1497,42 +1524,51 @@ main {
   .hosts-trigger-copy small {
     display: block;
     margin: 0 0 2px;
+
     font-family: Arial,Helvetica,sans-serif;
     font-size: 7px;
     font-weight: 700;
     line-height: 1;
     letter-spacing: .15em;
+
     color: var(--gold);
-    text-shadow: 0 1px 4px rgba(0,0,0,.95);
+
+    text-shadow:
+      0 1px 4px rgba(0,0,0,.95);
   }
 
   .hosts-trigger-copy strong {
     display: block;
     width: 100%;
     max-width: none;
+
     font-family: Georgia,"Times New Roman",serif;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.05;
+    letter-spacing: 0;
+
     white-space: normal;
+
     color: var(--cream);
+
     text-shadow:
       0 1px 4px rgba(0,0,0,.95),
       0 3px 10px rgba(0,0,0,.65);
   }
 
-  /* MODALES MÓVIL */
+  /* =======================================================
+     MODAL EXPERIENCIAS
+     ======================================================= */
 
-  .experience-modal,
-  .hosts-modal {
+  .experience-modal {
     padding:
       max(12px,env(safe-area-inset-top))
       12px
       max(12px,env(safe-area-inset-bottom));
   }
 
-  .experience-card,
-  .hosts-card {
+  .experience-card {
     width: 100%;
     height: auto;
     max-height: calc(
@@ -1553,41 +1589,73 @@ main {
     flex: 0 0 auto;
   }
 
+  .experience-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .experience-copy {
     flex: 0 0 auto;
+    min-height: 0;
     padding: 20px 22px 22px;
     justify-content: flex-start;
+    overflow: visible;
   }
 
   .experience-eyebrow {
-    margin-bottom: 10px;
+    margin: 0 0 10px;
     font-size: 11px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: .18em;
   }
 
   .experience-copy h2 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     font-size: clamp(36px,9.4vw,46px);
+    line-height: .95;
+    letter-spacing: -.03em;
   }
 
   .experience-text {
     max-width: none;
     font-size: clamp(15px,4vw,17px);
     line-height: 1.45;
+    color: rgba(255,248,236,.90);
   }
 
   .experience-signature {
-    margin-top: 15px;
+    margin: 15px 0 0;
     font-size: clamp(19px,5vw,22px);
+    line-height: 1.15;
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) {
+  .experience-close {
+    top: 13px;
+    right: 13px;
+    width: 44px;
+    height: 44px;
+    font-size: 29px;
+  }
+
+  /* HORARIOS / TARIFAS */
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) {
     padding:
       max(8px,env(safe-area-inset-top))
       8px
       max(8px,env(safe-area-inset-bottom));
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) .experience-card {
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-card {
     width: 100%;
     max-height: calc(
       100dvh -
@@ -1599,14 +1667,22 @@ main {
     overflow-y: auto;
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) .experience-photo {
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-photo {
     width: 100%;
     height: auto;
+    min-height: 0;
     padding: 8px;
     flex: 0 0 auto;
+    background: #0b1b12;
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) .experience-photo img {
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-photo img {
     width: 100%;
     height: auto;
     max-height: calc(100dvh - 260px);
@@ -1615,54 +1691,134 @@ main {
     border-radius: 10px;
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) .experience-copy {
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-copy {
     padding: 14px 18px 18px;
   }
 
-  .experience-modal:is([data-experience="horarios"], [data-experience="tarifas"]) .experience-copy h2 {
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-eyebrow {
+    margin-bottom: 7px;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-copy h2 {
     margin-bottom: 10px;
     font-size: clamp(27px,7.5vw,36px);
+    line-height: .98;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-text {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-signature {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+
+  /* =======================================================
+     MODAL ANFITRIONES
+     ======================================================= */
+
+  .hosts-modal {
+    padding:
+      max(12px,env(safe-area-inset-top))
+      12px
+      max(12px,env(safe-area-inset-bottom));
+  }
+
+  .hosts-card {
+    width: 100%;
+    height: auto;
+    max-height: calc(
+      100dvh -
+      max(12px,env(safe-area-inset-top)) -
+      max(12px,env(safe-area-inset-bottom))
+    );
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 20px;
   }
 
   .hosts-photo {
     width: 100%;
     height: auto;
     aspect-ratio: 1408 / 1086;
+    min-height: 0;
     flex: 0 0 auto;
+    overflow: hidden;
+    background: #0b1b12;
   }
 
   .hosts-photo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
+    background: #0b1b12;
   }
 
   .hosts-copy {
     flex: 0 0 auto;
+    min-height: 0;
     padding: 20px 22px 22px;
     justify-content: flex-start;
+    overflow: visible;
+  }
+
+  .hosts-eyebrow {
+    margin: 0 0 10px;
+    font-size: 11px;
+    line-height: 1.1;
+    letter-spacing: .18em;
   }
 
   .hosts-copy h2 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     font-size: clamp(37px,9.6vw,47px);
+    line-height: .94;
   }
 
   .hosts-copy > p:not(.hosts-eyebrow):not(.hosts-signature) {
     max-width: none;
     font-size: clamp(15px,4vw,17px);
     line-height: 1.45;
+    color: rgba(255,248,236,.90);
   }
 
   .hosts-signature {
-    margin-top: 15px;
+    margin: 15px 0 0;
     font-size: clamp(19px,5vw,22px);
+    line-height: 1.15;
+  }
+
+  .hosts-close {
+    top: 13px;
+    right: 13px;
+    width: 44px;
+    height: 44px;
+    font-size: 29px;
   }
 }
 
+
 /* =========================================================
    MÓVILES BAJOS
-   Importante: NO vuelve a subir Anfitriones a la fachada.
    ========================================================= */
 
 @media (max-width:650px) and (max-height:760px) {
@@ -1673,19 +1829,52 @@ main {
     height: 62px;
   }
 
+  /* En pantallas bajas mantenemos anfitriones en el lateral
+     del logotipo, pero ligeramente más compacto. */
+
   .hosts-trigger {
-    top: 57dvh !important;
-    width: 72px !important;
-    min-width: 72px !important;
-    max-width: 72px !important;
-    height: 72px !important;
-    min-height: 72px !important;
+    left: 78% !important;
+    top: 47dvh !important;
+
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+
+    transform: translateX(-50%) !important;
   }
 
-  .experience-photo { height: 27dvh; }
+  .hosts-trigger:hover {
+    transform: translateX(-50%) !important;
+  }
+
+  .hosts-trigger-copy {
+    width: 112px;
+    top: calc(100% + 5px);
+  }
+
+  .hosts-trigger-copy small {
+    font-size: 6px;
+  }
+
+  .hosts-trigger-copy strong {
+    font-size: 11px;
+  }
+
+  .experience-photo {
+    height: 27dvh;
+  }
 
   .experience-copy {
     padding: 15px 18px 17px;
+  }
+
+  .experience-eyebrow {
+    margin-bottom: 7px;
+    font-size: 10px;
   }
 
   .experience-copy h2 {
@@ -1698,8 +1887,58 @@ main {
     line-height: 1.36;
   }
 
+  .experience-signature {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-photo {
+    height: auto;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-photo img {
+    max-height: calc(100dvh - 225px);
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-copy {
+    padding: 10px 15px 14px;
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-copy h2 {
+    font-size: clamp(24px,7vw,31px);
+  }
+
+  .experience-modal:is(
+    [data-experience="horarios"],
+    [data-experience="tarifas"]
+  ) .experience-text {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .hosts-photo {
+    aspect-ratio: 1408 / 1086;
+  }
+
   .hosts-copy {
     padding: 15px 18px 17px;
+  }
+
+  .hosts-eyebrow {
+    margin-bottom: 7px;
+    font-size: 10px;
   }
 
   .hosts-copy h2 {
@@ -1710,6 +1949,11 @@ main {
   .hosts-copy > p:not(.hosts-eyebrow):not(.hosts-signature) {
     font-size: 14px;
     line-height: 1.36;
+  }
+
+  .hosts-signature {
+    margin-top: 10px;
+    font-size: 17px;
   }
 }
 
