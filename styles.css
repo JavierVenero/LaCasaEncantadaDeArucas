@@ -392,7 +392,7 @@ main { width: 100vw; height: 100dvh; }
      Anfitriones sale de la fila de la fachada.
      Se integra en la zona verde, centrado.
   */
-  .hosts-trigger { left: 50%; right: auto; top: 57dvh; width: 92px; min-width: 92px; max-width: 92px; height: 92px; min-height: 92px; aspect-ratio: auto; overflow: visible; border: 2px solid rgba(225,188,128,.94); border-radius: 50%; transform: translateX(-50%); background: rgba(16,37,26,.94); box-shadow: 0 14px 34px rgba(0,0,0,.40), 0 0 0 4px rgba(16,37,26,.35); }
+  .hosts-trigger { left: 50%; right: auto; top: 39dvh; width: 92px; min-width: 92px; max-width: 92px; height: 92px; min-height: 92px; aspect-ratio: auto; overflow: visible; border: 2px solid rgba(225,188,128,.94); border-radius: 50%; transform: translateX(-50%); background: rgba(16,37,26,.94); box-shadow: 0 14px 34px rgba(0,0,0,.40), 0 0 0 4px rgba(16,37,26,.35); }
 
   .hosts-trigger:hover { transform: translateX(-50%); }
 
@@ -523,9 +523,6 @@ main { width: 100vw; height: 100dvh; }
   .hero-action strong { font-size: 14px; }
 
   .live-message { right: 72px; bottom: 17px; max-width: 864px; padding: 10px 18px; font-size: 16px; }
-
-  .experience-trigger { top: 230px; width: 245px; border-radius: 16px; }
-  .hosts-trigger { top: 220px; width: 280px; border-radius: 17px; }
 
   .experience-trigger-copy { left: 15px; right: 15px; bottom: 27px; }
   .experience-trigger-copy small { margin-bottom: 5px; font-size: 8px; }
