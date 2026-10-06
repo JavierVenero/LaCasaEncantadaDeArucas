@@ -388,39 +388,88 @@ main { width: 100vw; height: 100dvh; }
 
   .experience-trigger-copy strong { display: block; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; line-height: 1.08; letter-spacing: 0; white-space: normal; color: rgba(255,248,236,.98); text-shadow: 0 1px 4px rgba(0,0,0,.95), 0 3px 10px rgba(0,0,0,.65); }
 
-  /* ANFITRIONES BIEN DEFINIDO EN LA ZONA VERDE */
-  .hosts-trigger {
-    position: absolute;
-    left: 50%;
-    top: 32dvh; /* Colocado de forma segura en la franja verde intermedia */
-    width: 78px;
-    min-width: 78px;
-    max-width: 78px;
-    height: 78px;
-    min-height: 78px;
-    aspect-ratio: auto;
-    overflow: visible;
-    border: 2px solid rgba(225,188,128,.94);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    background: rgba(16,37,26,.94);
-    box-shadow: 0 14px 34px rgba(0,0,0,.40), 0 0 0 4px rgba(16,37,26,.35);
-  }
-  .hosts-trigger:hover { transform: translateX(-50%); }
+  /* ANFITRIONES — MÓVIL */
+.hosts-trigger {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  top: 56dvh;
+  width: 78px;
+  min-width: 78px;
+  max-width: 78px;
+  height: 78px;
+  min-height: 78px;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 2px solid rgba(225,188,128,.94);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(16,37,26,.94);
+  box-shadow:
+    0 0 0 2px rgba(255,248,236,.28),
+    0 0 0 5px rgba(225,188,128,.10),
+    0 10px 24px rgba(0,0,0,.42);
+}
 
-  .hosts-trigger::before,
-  .hosts-trigger::after { display: none; }
+.hosts-trigger:hover {
+  transform: translate(-50%, -50%);
+}
 
-  .hosts-trigger img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; border-radius: 50%; transform: none; background: var(--green-deep); }
+.hosts-trigger::before,
+.hosts-trigger::after {
+  display: none;
+}
 
-  .hosts-trigger-copy { display: block; position: absolute; left: 50%; right: auto; top: calc(100% + 7px); bottom: auto; width: 150px; transform: translateX(-50%); padding: 0; text-align: center; pointer-events: none; }
+.hosts-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: 50%;
+  transform: none;
+  background: var(--green-deep);
+}
 
-  .hosts-trigger-copy small { display: block; margin: 0 0 2px; font-family: Arial, Helvetica, sans-serif; font-size: 7px; font-weight: 700; line-height: 1; letter-spacing: .15em; color: var(--gold); text-shadow: 0 1px 4px rgba(0,0,0,.95); }
+.hosts-trigger-copy {
+  display: block;
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: calc(100% + 7px);
+  bottom: auto;
+  width: 150px;
+  transform: translateX(-50%);
+  padding: 0;
+  text-align: center;
+  pointer-events: none;
+}
 
-  .hosts-trigger-copy strong { display: block; width: 100%; max-width: none; font-family: Georgia, "Times New Roman", serif; font-size: 12px; font-weight: 400; line-height: 1.05; letter-spacing: 0; white-space: normal; color: var(--cream); text-shadow: 0 1px 4px rgba(0,0,0,.95), 0 3px 10px rgba(0,0,0,.65); }
-  
-  /* Resto de ajustes del contenedor para evitar solapes con los botones de contacto inferiores */
-  ...
+.hosts-trigger-copy small {
+  display: block;
+  margin: 0 0 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .15em;
+  color: var(--gold);
+  text-shadow: 0 1px 4px rgba(0,0,0,.95);
+}
+
+.hosts-trigger-copy strong {
+  display: block;
+  width: 100%;
+  max-width: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: normal;
+  color: var(--cream);
+  text-shadow:
+    0 1px 4px rgba(0,0,0,.95),
+    0 3px 10px rgba(0,0,0,.65);
 }
 
 
