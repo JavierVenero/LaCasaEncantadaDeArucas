@@ -392,7 +392,7 @@ main { width: 100vw; height: 100dvh; }
      Anfitriones sale de la fila de la fachada.
      Se integra en la zona verde, centrado.
   */
-  .hosts-trigger { left: 50%; right: auto; top: 39dvh; width: 92px; min-width: 92px; max-width: 92px; height: 92px; min-height: 92px; aspect-ratio: auto; overflow: visible; border: 2px solid rgba(225,188,128,.94); border-radius: 50%; transform: translateX(-50%); background: rgba(16,37,26,.94); box-shadow: 0 14px 34px rgba(0,0,0,.40), 0 0 0 4px rgba(16,37,26,.35); }
+  .hosts-trigger { left: 50%; right: auto; top: 39dvh; width: 78px; min-width: 78px; max-width: 78px; height: 78px; min-height: 78px; aspect-ratio: auto; overflow: visible; border: 2px solid rgba(225,188,128,.94); border-radius: 50%; transform: translateX(-50%); background: rgba(16,37,26,.94); box-shadow: 0 14px 34px rgba(0,0,0,.40), 0 0 0 4px rgba(16,37,26,.35); }
 
   .hosts-trigger:hover { transform: translateX(-50%); }
 
