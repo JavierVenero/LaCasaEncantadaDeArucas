@@ -496,7 +496,9 @@ main { width: 100vw; height: 100dvh; }
   .hosts-copy h2 { margin-bottom: 10px; font-size: clamp(31px,8.5vw,39px); }
   .hosts-copy > p:not(.hosts-eyebrow):not(.hosts-signature) { font-size: 14px; line-height: 1.36; }
   .hosts-signature { margin-top: 10px; font-size: 17px; }
+}
 
+/* ESCRITORIO GRANDE */
 /* ESCRITORIO GRANDE */
 @media (min-width: 1800px) and (hover: hover) and (pointer: fine) {
   .site-header { height: 211px; padding: 26px 49px; }
