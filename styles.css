@@ -352,31 +352,99 @@ main { width: 100vw; height: 100dvh; }
   .hero-subtitle { font-size: 11px; }
 }
 
+/* =========================================================
+   DISTRIBUCIÓN FINAL — 4 ACCESOS
+   Yoga · Horarios · Tarifas · Anfitriones
+   ========================================================= */
+
+/* ESCRITORIO */
 @media (min-width: 1101px) {
-  .experiences-dock .experience-trigger:nth-child(2) { left: 50%; }
-  .experiences-dock .experience-trigger-rates { left: 80.5%; transform: translateX(-50%); }
-  .hosts-trigger { left: 80.5%; top: 60vh; }
+  .experiences-dock .experience-trigger:nth-child(1) {
+    left: 14%;
+  }
+
+  .experiences-dock .experience-trigger:nth-child(2) {
+    left: 38%;
+  }
+
+  .experiences-dock .experience-trigger-rates {
+    left: 62%;
+    transform: translateX(-50%);
+  }
+
+  .hosts-trigger {
+    left: 86%;
+    top: 30.5vh;
+  }
 }
 
+/* TABLET VERTICAL */
 @media (min-width: 651px) and (max-width: 1100px) and (orientation: portrait) {
-  .experiences-dock .experience-trigger:nth-child(2) { left: 50%; }
-  .experiences-dock .experience-trigger-rates { left: 81%; transform: translateX(-50%); }
-  .hosts-trigger { left: 81%; top: 42dvh; }
+  .experiences-dock .experience-trigger:nth-child(1) {
+    left: 14%;
+  }
+
+  .experiences-dock .experience-trigger:nth-child(2) {
+    left: 38%;
+  }
+
+  .experiences-dock .experience-trigger-rates {
+    left: 62%;
+    transform: translateX(-50%);
+  }
+
+  .hosts-trigger {
+    left: 86%;
+    top: clamp(180px, 18dvh, 240px);
+  }
 }
 
+/* TABLET HORIZONTAL */
 @media (min-width: 651px) and (max-width: 1100px) and (orientation: landscape) {
-  .experiences-dock .experience-trigger-rates { left: auto; right: 3.5vw; top: 69vh; width: clamp(130px, 15vw, 175px); transform: none; border-radius: 13px; }
-  .hosts-trigger { left: 64% !important; right: auto !important; top: 69vh !important; transform: translateX(-50%) !important; }
+  .experiences-dock .experience-trigger-rates {
+    left: auto !important;
+    right: 3.5vw !important;
+    top: 69vh !important;
+    width: clamp(130px, 15vw, 175px) !important;
+    transform: none !important;
+    border-radius: 13px;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 650px) {
+  .experiences-dock .experience-trigger:nth-child(1) {
+    left: 12%;
+  }
+
+  .experiences-dock .experience-trigger:nth-child(2) {
+    left: 37%;
+  }
+
+  .experiences-dock .experience-trigger-rates {
+    left: 63%;
+    transform: translateX(-50%);
+  }
+
+  .hosts-trigger {
+    left: 88%;
+    top: clamp(114px, 16.5dvh, 155px);
+  }
+}
+
+/* Hover de Tarifas */
+.experiences-dock .experience-trigger-rates:hover {
+  transform: translateX(-50%) translateY(-4px) scale(1.025);
 }
 
 @media (max-width: 650px) {
-  .experiences-dock .experience-trigger:nth-child(2) { left: 50%; }
-  .experiences-dock .experience-trigger-rates { left: 81%; transform: translateX(-50%); }
-  .hosts-trigger { left: 81%; top: max(220px, 31dvh); }
+  .experiences-dock .experience-trigger-rates:hover {
+    transform: translateX(-50%);
+  }
 }
 
-.experiences-dock .experience-trigger-rates:hover { transform: translateX(-50%); }
-
 @media (min-width: 651px) and (max-width: 1100px) and (orientation: landscape) {
-  .experiences-dock .experience-trigger-rates:hover { transform: none; }
+  .experiences-dock .experience-trigger-rates:hover {
+    transform: none !important;
+  }
 }
